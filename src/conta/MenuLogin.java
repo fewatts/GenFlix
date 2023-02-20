@@ -25,35 +25,17 @@ class MenuLogin {
 			System.out.println("¬¬¬Digite sua opção:                                               ");
 			System.out.println("                                                                   ");
 			opcao = leia.nextInt();
-			if(opcao == 9) {
+			if(opcao == 3) {
 				System.out.println("Sistema encerrado com sucesso!");
 				System.out.println("Volte sempre!\n\n");
 				System.exit(0);
 			}
 			switch(opcao){
 			case 1 ->{
-				System.out.println("Criar conta\n\n");
+				System.out.println("Fazer login\n\n");
 			}
 			case 2 ->{
-				System.out.println("Listar todas as contas\n\n");
-			}
-			case 3 ->{
-				System.out.println("Consultar dados da conta por número\n\n");
-			}
-			case 4 ->{
-				System.out.println("Atualizar dados da conta\n\n");
-			}
-			case 5 ->{
-				System.out.println("pagar conta\n\n");
-			}
-			case 6 ->{
-				System.out.println("Saque\n\n");
-			}
-			case 7 ->{
-				System.out.println("Depósito\n\n");
-			}
-			case 8 ->{
-				System.out.println("Transferência entre contas\n\n");
+				System.out.println("Criar conta\n\n");
 			}
 			default ->System.out.println("Opção inválida, tente novamente...");
 			}
