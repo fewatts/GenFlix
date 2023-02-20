@@ -2,8 +2,12 @@ package conta.model;
 
 import java.util.Scanner;
 
-public class MenuLogin {
-	public void init() {
+public class Menu {
+
+	public static void main(String[] args) {
+		String user;
+		String password;
+	
 	Scanner leia = new Scanner(System.in);
 	int opcao;
 	while(true) {
@@ -30,6 +34,15 @@ public class MenuLogin {
 		switch(opcao){
 		case 1 ->{
 			System.out.println("Fazer login\n\n");
+			System.out.println("Usuário: ");
+			leia.skip("\\R?");
+			user = leia.nextLine();
+			
+			System.out.println("Senha: ");
+			leia.skip("\\R?");
+			password = leia.nextLine();
+			
+			
 		}
 		case 2 ->{
 			System.out.println("Criar conta\n\n");
@@ -42,3 +55,5 @@ public class MenuLogin {
    }
 
 }
+
+
