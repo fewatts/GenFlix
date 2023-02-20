@@ -24,6 +24,7 @@ public class MenuLogin {
 		if(opcao == 3) {
 			System.out.println("Sistema encerrado com sucesso!");
 			System.out.println("Volte sempre!\n\n");
+			leia.close();
 			System.exit(0);
 		}
 		switch(opcao){
@@ -36,7 +37,7 @@ public class MenuLogin {
 		default ->System.out.println("Opção inválida, tente novamente...");
 		}
 		
-	 }
+	  }
 	
    }
 
