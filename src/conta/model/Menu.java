@@ -1,13 +1,15 @@
 package conta.model;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
+
+import conta.util.Conta;
 
 public class Menu {
 
 	public static void main(String[] args) {
-		String user;
-		String password;
-	
+	ArrayList<Conta> contas = new ArrayList<Conta>();
 	Scanner leia = new Scanner(System.in);
 	int opcao;
 	while(true) {
@@ -34,18 +36,14 @@ public class Menu {
 		switch(opcao){
 		case 1 ->{
 			System.out.println("Fazer login\n\n");
-			System.out.println("Usuário: ");
-			leia.skip("\\R?");
-			user = leia.nextLine();
-			
-			System.out.println("Senha: ");
-			leia.skip("\\R?");
-			password = leia.nextLine();
+			loginValida();
+			if(loginValida());
 			
 			
 		}
 		case 2 ->{
 			System.out.println("Criar conta\n\n");
+			criarConta();
 		}
 		default ->System.out.println("Opção inválida, tente novamente...");
 		}
@@ -55,5 +53,3 @@ public class Menu {
    }
 
 }
-
-

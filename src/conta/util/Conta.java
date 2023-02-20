@@ -1,7 +1,6 @@
 package conta.util;
 
 public class Conta {
-	public int idusuario;
 	private String usuario;
 	private String senha;
 	private ListaFilme filmes = new ListaFilme();
@@ -11,19 +10,6 @@ public class Conta {
 		this.senha = senha;
 		this.filmes = filmes;
 		this.series = series;
-	}
-	public Conta(int idusuario, String usuario, String senha, ListaFilme filmes, ListaSerie series) {
-		this.idusuario = idusuario;
-		this.usuario = usuario;
-		this.senha = senha;
-		this.filmes = filmes;
-		this.series = series;
-	}
-	public int getIdusuario() {
-		return idusuario;
-	}
-	public void setIdusuario(int idusuario) {
-		this.idusuario = idusuario;
 	}
 	public String getUsuario() {
 		return usuario;
