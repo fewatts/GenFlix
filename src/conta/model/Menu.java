@@ -48,6 +48,7 @@ public class Menu {
 		case 2 ->{
 			System.out.println("Criar conta:\n\n");
 			Conta.criarConta();
+			//menuUsuario();
 			
 		}
 		default ->System.out.println("Opção inválida, tente novamente...");
