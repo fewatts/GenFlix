@@ -2,6 +2,7 @@ package conta;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import conta.model.Conta;
 
 public class StartGenFlix {
@@ -42,7 +43,7 @@ public class StartGenFlix {
 
 				if (!verificar) {
 					contas.add(conta);
-					menuUsuario(conta);
+					MenuUsuario.init(conta);
 				}
 
 			}
@@ -79,15 +80,20 @@ public class StartGenFlix {
 			for (Conta c : contas) {
 				if (c.getUsuario().equals(usuario) && c.getSenha().equals(senha)) {
 					acesso = true;
-					menuUsuario(c);
+					MenuUsuario.init(c);
 					break;
 				}
 			}
 			
 			if(!acesso) {
-				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-				System.out.println("   Usuário ou senha inválido. Tente Novamente!   ");
-				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+				int continuar;
+				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+				System.out.println("   Usuário ou senha inválido. Tentar Novamente? (0 - Não | 1 - Sim) ");
+				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+				continuar = leia.nextInt();
+				if(continuar == 0) {
+					acesso = true;
+				}
 			}
 
 		} while (!acesso);
