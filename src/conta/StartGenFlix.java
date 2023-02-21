@@ -3,7 +3,6 @@ package conta;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import conta.model.Conta;
 
 public class StartGenFlix {
@@ -24,7 +23,7 @@ public class StartGenFlix {
 			System.out.println("                   3- Encerrar                                     ");
 			System.out.println("                                                                   ");
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-			System.out.println("Digite sua opção:                                               ");
+			System.out.println("Digite sua opção:                                                  ");
 			System.out.println("                                                                   ");
 			opcao = leia.nextInt();
 			switch (opcao) {
@@ -34,17 +33,17 @@ public class StartGenFlix {
 			}
 			case 2 -> {
 				Conta conta = criarConta();
-				boolean icons = false;
+				boolean verificar = false;
 
 				for (Conta c : contas) {
 					if (c.getUsuario().equals(conta.getUsuario())) {
-						icons = true;
+						verificar = true;
 						System.out.println("Usuario ja cadastrado tente novamente!!");
 						break;
 					}
 				}
 
-				if (!icons) {
+				if (!verificar) {
 					contas.add(conta);
 					menuUsuario(conta);
 				}
@@ -53,7 +52,7 @@ public class StartGenFlix {
 			case 3 -> {
 				System.out.println("Sistema encerrado com sucesso!");
 				System.out.println("Volte sempre!\n\n");
-				leia.close();
+				
 			}
 			default -> System.out.println("Opção inválida, tente novamente...\n");
 			}
@@ -75,8 +74,10 @@ public class StartGenFlix {
 		senha = leia.nextLine();
 
 		Conta conta = new Conta(usuario, senha);
-
+		
+        leia.close();
 		return conta;
+		
 	}
 
 	private static void menuUsuario(Conta conta) {
