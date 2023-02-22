@@ -11,7 +11,7 @@ public class StartGenFlix {
 		ArrayList<Conta> contas = new ArrayList<Conta>();
 		Scanner leia = new Scanner(System.in);
 		int opcao;
-		do {
+		do{
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println("                                                                   ");
 			System.out.println("                     BEM-VINDE À GENFLIX                           ");
@@ -25,15 +25,14 @@ public class StartGenFlix {
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println("Digite uma opção:                                                  ");
 			opcao = leia.nextInt();
-			switch (opcao) {
-			case 1 -> {
-				login(contas);
-			}
-			case 2 -> {
+			switch(opcao){
+			case 1 -> login(contas);
+			
+			case 2 ->{
 				Conta conta = criarConta();
 				boolean verificar = false;
 
-				for (Conta c : contas) {
+				for(Conta c : contas){
 					if (c.getUsuario().equals(conta.getUsuario())) {
 						verificar = true;
 						System.out.println("Usuario já cadastrado tente novamente!!");
@@ -41,13 +40,13 @@ public class StartGenFlix {
 					}
 				}
 
-				if (!verificar) {
+				if(!verificar){
 					contas.add(conta);
 					MenuUsuario.init(conta);
 				}
 
 			}
-			case 3 -> {
+			case 3 ->{
 				System.out.println("Sistema encerrado com sucesso!");
 				System.out.println("Volte sempre!\n\n");
 
@@ -55,7 +54,7 @@ public class StartGenFlix {
 			default -> System.out.println("Opção inválida, tente novamente...\n");
 			}
 
-		} while (opcao != 3);
+		}while (opcao != 3);
 
 	}
 
@@ -85,22 +84,21 @@ public class StartGenFlix {
 				}
 			}
 			
-			if(!acesso) {
+			if(!acesso){
 				int continuar;
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 				System.out.println("   Usuário ou senha inválido. Tentar Novamente? (0 - Não | 1 - Sim) ");
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 				continuar = leia.nextInt();
-				if(continuar == 0) {
+				if(continuar == 0) 
 					acesso = true;
-				}
 			}
 
-		} while (!acesso);
+		}while(!acesso);
 
 	}
 
-	private static Conta criarConta() {
+	private static Conta criarConta(){
 		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 		System.out.println("          CRIAR CONTA            ");
 		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
@@ -110,7 +108,7 @@ public class StartGenFlix {
 		int resp = 0;
 		Conta conta = null;
 
-		do {
+		do{
 			System.out.println("Digite o nome de usuário: ");
 			leia.skip("\\R?");
 			usuario = leia.nextLine();
@@ -122,27 +120,26 @@ public class StartGenFlix {
 			System.out.printf("\nConfirma os dados? [1- Sim | 2- Não]\n");
 			resp = leia.nextInt();
 
-			if (resp == 1) {
+			if(resp == 1){
 				conta = new Conta(usuario, senha);
 				System.out.printf("Conta %s criada com sucesso!\n\n", usuario);
-			} else {
+			}else{
 
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 				System.out.println("  Digite os dados novamente:     ");
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			}
-		} while (resp != 1);
-
+		}while(resp != 1);
 		return conta;
-
 	}
 
 	private static void menuUsuario(Conta conta) {
 		int opcao = 0;
-		do {
+		do{
 			System.out.println("Bem vinde " + conta.getUsuario());
 			opcao = 5;
-		} while (opcao != 5);
+		}while(opcao != 5);
+		
 	}
 
 }

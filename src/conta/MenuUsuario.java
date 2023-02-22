@@ -109,16 +109,16 @@ public class MenuUsuario {
 			
 			boolean opcaoInvalida=true;
 			do {
-		System.out.println("Com quantas estrelas você classifica esse filme?");
-		System.out.println("   0 - ☆☆☆☆☆ | 1 - ★☆☆☆☆ | 2 - ★★☆☆☆");
-		System.out.println("   3 - ★★★☆☆ | 4 - ★★★★☆ | 5 - ★★★★★");
-		System.out.println("   ");
-		classificacao = scan.nextInt();
-		
-		if(classificacao < 0 || classificacao > 5) {
-			
-			System.out.println("Classificação invalida! Digite novamente");
-		}else opcaoInvalida = false;
+				System.out.println("Com quantas estrelas você classifica esse filme?");
+				System.out.println("   0 - ☆☆☆☆☆ | 1 - ★☆☆☆☆ | 2 - ★★☆☆☆");
+				System.out.println("   3 - ★★★☆☆ | 4 - ★★★★☆ | 5 - ★★★★★");
+				System.out.println("   ");
+				classificacao = scan.nextInt();
+				
+				if(classificacao < 0 || classificacao > 5) {
+					
+					System.out.println("Classificação invalida! Digite novamente");
+				}else opcaoInvalida = false;
 		
 			}while(opcaoInvalida);
 		}
@@ -172,4 +172,5 @@ public class MenuUsuario {
 		//return Serie serie = new Serie(titulo, genero,temporadas,capitulos,status,classificacao);
 		
 	}
+	
 }

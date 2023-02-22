@@ -38,8 +38,4 @@ public class Serie extends ProducaoAudioVisual {
 	public void setEpisodiosAssistidos(int episodiosAssistidos) {
 		this.episodiosAssistidos = episodiosAssistidos;
 	}
-	
-	
-	
-	
 }
