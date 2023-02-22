@@ -9,7 +9,6 @@ public class Conta {
 	private String usuario;
 	private String senha;
 	private ArrayList<Filme> filmes = new ArrayList<>();
-	private ArrayList<Serie> series = new ArrayList<>();
 
 	public Conta(String usuario, String senha) {
 		this.usuario = usuario;
@@ -40,14 +39,6 @@ public class Conta {
 		this.filmes = filmes;
 	}
 
-	public ArrayList<Serie> getSeries() {
-		return series;
-	}
-
-	public void setSeries(ArrayList<Serie> series) {
-		this.series = series;
-	}
-	
 	
 	public void visualizaFilmes(){}
 	

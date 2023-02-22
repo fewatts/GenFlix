@@ -20,7 +20,9 @@ public class StartGenFlix {
 			System.out.println("                                                                   ");
 			System.out.println("                   1- Fazer login                                  ");
 			System.out.println("                   2- Criar uma conta                              ");
-			System.out.println("                   3- Encerrar                                     ");
+			System.out.println("                   3- Editar conta                                 ");
+			System.out.println("                   4- Deletar conta                                ");
+			System.out.println("                   5- Encerrar                                     ");
 			System.out.println("                                                                   ");
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println("Digite uma opção:                                                  ");
@@ -47,14 +49,21 @@ public class StartGenFlix {
 
 			}
 			case 3 ->{
+				System.out.println("Editar conta!");
+			}
+			case 4 ->{
+				System.out.println("Deletar conta!");
+				
+			}
+			case 5 ->{
 				System.out.println("Sistema encerrado com sucesso!");
 				System.out.println("Volte sempre!\n\n");
-
+				
 			}
 			default -> System.out.println("Opção inválida, tente novamente...\n");
 			}
 
-		}while (opcao != 3);
+		}while (opcao != 5);
 
 	}
 
@@ -131,15 +140,6 @@ public class StartGenFlix {
 			}
 		}while(resp != 1);
 		return conta;
-	}
-
-	private static void menuUsuario(Conta conta) {
-		int opcao = 0;
-		do{
-			System.out.println("Bem vinde " + conta.getUsuario());
-			opcao = 5;
-		}while(opcao != 5);
-		
 	}
 
 }
