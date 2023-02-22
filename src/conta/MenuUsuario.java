@@ -106,9 +106,10 @@ public class MenuUsuario {
 				System.out.println("   ");
 				classificacao = scan.nextInt();
 				
-				if(classificacao < 0 || classificacao > 5) {
+				if(classificacao < 0 || classificacao > 5) 
 					System.out.println("Classificação invalida! Digite novamente");
-				}else opcaoInvalida = false;
+				else 
+					opcaoInvalida = false;
 		
 			}while(opcaoInvalida);
 			
