@@ -47,5 +47,15 @@ public class Conta {
 	public void setSeries(ArrayList<Serie> series) {
 		this.series = series;
 	}
+	
+	
+	public void visualizaFilmes(){}
+	
+	public boolean existeFilme(String nome) {
+		
+		return false;
+	}
+	
+	public void deletaFilme(String nome){}
 
 }
