@@ -5,6 +5,7 @@ import java.util.Scanner;
 import conta.model.Conta;
 
 public class MenuUsuario {
+	
 	static Scanner scan = new Scanner(System.in);
 	
 	public static void init(Conta conta) {
@@ -32,16 +33,14 @@ public class MenuUsuario {
 			System.out.println("                                                                   ");
 			opcao = scan.nextInt();
 			
-			
 			switch(opcao){
 			case 1 -> {
 				// Listagem de filmes
 				//conta.listaFilmes();
 				}
 			case 2 ->{
-			//Filme filme = addFilme();
-			//conta.addFilme(filme)
-				
+				//Filme filme = addFilme();
+				//conta.addFilme(filme)
 			}
 			case 3 ->{
 				String nome;
@@ -58,28 +57,21 @@ public class MenuUsuario {
 			case 5 ->{
 				//Serie serie= addSerie();
 				//conta.addSerie(Serie)
-				
 			}
 			case 6 ->{
-				
 				String nome;
 				System.out.println("Digite o nome da serie a ser deletada:");
 				scan.skip("\\R?");
 				nome = scan.nextLine();
 				//conta.deletarSerie(nome);
-				
 			}
-			
-			case 7 ->{
-				System.out.println("Você saiu da sua conta.");
-				
-			}
+			case 7 ->System.out.println("Você saiu da sua conta.");
 			
 			default ->System.out.println("Opção inválida, tente novamente...");
 			}
-			
-			
+		
 		}while(opcao!=7);
+		
 	}
 
 	private void addFilme() {
@@ -103,10 +95,9 @@ public class MenuUsuario {
 		System.out.println("   1 - Assistido");
 		status = scan.nextInt();
 		
-		if(status == 0) {
+		if(status == 0) 
 			classificacao = 0;
-		}else {
-			
+		else {
 			boolean opcaoInvalida=true;
 			do {
 				System.out.println("Com quantas estrelas você classifica esse filme?");
@@ -116,15 +107,13 @@ public class MenuUsuario {
 				classificacao = scan.nextInt();
 				
 				if(classificacao < 0 || classificacao > 5) {
-					
 					System.out.println("Classificação invalida! Digite novamente");
 				}else opcaoInvalida = false;
 		
 			}while(opcaoInvalida);
+			
 		}
-		
-			//return Filme filme = new Filme(titulo, genero,duracao,status,classificacao);
-		
+		//return Filme filme = new Filme(titulo, genero,duracao,status,classificacao);
 	}
 	private void addSerie() {
 		String titulo,genero;
@@ -149,9 +138,9 @@ public class MenuUsuario {
 		System.out.println("   1 - Assistido");
 		status = scan.nextInt();
 		
-		if(status == 0) {
+		if(status == 0) 
 			classificacao = 0;
-		}else {
+		else {
 			
 			boolean opcaoInvalida=true;
 			do {
@@ -162,15 +151,13 @@ public class MenuUsuario {
 				classificacao = scan.nextInt();
 				
 				if(classificacao < 0 || classificacao > 5) {
-					
 					System.out.println("Classificação invalida! Digite novamente");
 				}else opcaoInvalida = false;
 				
 			}while(opcaoInvalida);
+			
 		}
-		
 		//return Serie serie = new Serie(titulo, genero,temporadas,capitulos,status,classificacao);
-		
 	}
 	
 }
