@@ -1,8 +1,6 @@
 package conta.model;
 
 import java.util.ArrayList;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Conta {
@@ -39,14 +37,24 @@ public class Conta {
 		this.filmes = filmes;
 	}
 
-	
-	public void visualizaFilmes(){}
-	
+	public void visualizaFilmes() {
+	}
+
 	public boolean existeFilme(String nome) {
-		
+
+		// percorrendo a lista de filmes pra verificar se o filme existe nessa lista
+		for (Filme filme : filmes) {
+			String titulo = filme.getTitulo();
+			// toUpperCase para identificar o filme independente da forma que o usuário digitar
+			if (titulo.toUpperCase() == nome.toUpperCase()) {
+				return true;
+			}
+		}
+
 		return false;
 	}
-	
-	public void deletaFilme(String nome){}
+
+	public void deletaFilme(String nome) {
+	}
 
 }

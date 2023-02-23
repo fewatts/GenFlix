@@ -1,6 +1,6 @@
 package conta.model;
 
-public class Filme extends ProducaoAudioVisual{
+public class Filme extends ProducaoAudioVisual {
 	private int duracao;
 
 	public Filme(String titulo, String genero, int status, int classificacao, int duracao) {
@@ -8,8 +8,7 @@ public class Filme extends ProducaoAudioVisual{
 		this.duracao = duracao;
 	}
 
-	public Filme() {
-	}
+	// public Filme() {} = o que é isso, mesmo?
 
 	public int getDuracao() {
 		return duracao;
@@ -19,13 +18,18 @@ public class Filme extends ProducaoAudioVisual{
 		this.duracao = duracao;
 	}
 
+	@Override
+	public void visualizar() {
 
-	/*public void visualizar() {
-		//System.out.println("------ Filme --------"+ 
-							"\nTitulo: "+ this.getTitulo()+
-							"\nClassificação: "+ this.getClassificacao());  
-	}*/
-	
-	
-	
+		super.visualizar();
+
+		System.out.println("Duração do filme (em minutos): " + this.duracao);
+	}
+
+	/*
+	 * public void visualizar() { //System.out.println("------ Filme --------"+
+	 * "\nTitulo: "+ this.getTitulo()+ "\nClassificação: "+
+	 * this.getClassificacao()); }
+	 */
+
 }

@@ -1,20 +1,20 @@
 package conta.model;
 
-public class ProducaoAudioVisual {
+public abstract class ProducaoAudioVisual {
 	private String titulo;
 	private String genero;
 	private int status;
 	private int classificacao;
-	
+
 	public ProducaoAudioVisual(String titulo, String genero, int status, int classificacao) {
-		
+
 		this.titulo = titulo;
 		this.genero = genero;
 		this.status = status;
 		this.classificacao = classificacao;
 	}
 
-	public ProducaoAudioVisual() {}
+	//public ProducaoAudioVisual() {} = o que é isso, mesmo?
 
 	public String getTitulo() {
 		return titulo;
@@ -47,5 +47,17 @@ public class ProducaoAudioVisual {
 	public void setClassificacao(int classificacao) {
 		this.classificacao = classificacao;
 	}
-	
+
+	public void visualizar() {
+		System.out.println("***********************");
+		System.out.println("                       ");
+		System.out.println("     DADOS DO FILME    ");
+		System.out.println("                       ");
+		System.out.println("***********************");
+		System.out.println("Título: " + this.titulo);
+		System.out.println("Gênero: " + this.genero);
+		System.out.println("Status: " + this.status);
+		System.out.println("Classificação: " + this.classificacao);
+	}
+
 }
