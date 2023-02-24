@@ -14,8 +14,6 @@ public abstract class ProducaoAudioVisual {
 		this.classificacao = classificacao;
 	}
 
-	//public ProducaoAudioVisual() {} = o que é isso, mesmo?
-
 	public String getTitulo() {
 		return titulo;
 	}

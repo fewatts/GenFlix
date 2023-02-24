@@ -37,7 +37,7 @@ public class StartGenFlix {
 				for(Conta c : contas){
 					if (c.getUsuario().equals(conta.getUsuario())) {
 						verificar = true;
-						System.out.println("Usuario já cadastrado tente novamente!!");
+						System.out.println("Usuario já cadastrado, tente novamente!");
 						break;
 					}
 				}
@@ -60,7 +60,7 @@ public class StartGenFlix {
 				System.out.println("Volte sempre!\n\n");
 				
 			}
-			default -> System.out.println("Opção inválida, tente novamente...\n");
+			default -> System.out.println("Opção inválida, tente novamente!\n");
 			}
 
 		}while (opcao != 5);

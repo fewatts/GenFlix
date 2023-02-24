@@ -8,8 +8,6 @@ public class Filme extends ProducaoAudioVisual {
 		this.duracao = duracao;
 	}
 
-	// public Filme() {} = o que é isso, mesmo?
-
 	public int getDuracao() {
 		return duracao;
 	}
