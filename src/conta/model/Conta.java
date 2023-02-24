@@ -2,13 +2,11 @@ package conta.model;
 
 import java.util.ArrayList;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Conta {
 	private String usuario;
 	private String senha;
 	private ArrayList<Filme> filmes = new ArrayList<>();
+	// colocar filmes dentro do new Arraylist;
 
 	public Conta(String usuario, String senha) {
 		this.usuario = usuario;
@@ -38,9 +36,27 @@ public class Conta {
 	public void setFilmes(ArrayList<Filme> filmes) {
 		this.filmes = filmes;
 	}
-
 	
-	public void visualizaFilmes(){}
+	public void listaFilmes() {
+		System.out.println("**********************************");
+		System.out.println("          Lista de filmes         ");
+		System.out.println("**********************************");
+		for(Filme filme : filmes) {
+			System.out.println("               FILME                ");
+			System.out.println("\nTitulo: " + filme.getTitulo());
+			System.out.println("\nGenero: " + filme.getGenero());
+			System.out.println("\nStatus: " + filme.getStatus());
+			System.out.println("\nClassificação: " + filme.getClassificacao());
+			System.out.println("\nDuração: " + filme.getDuracao() + "\n\n");
+			System.out.println("**********************************\n");
+		}
+	}
+	
+	public void addFilme(Filme filme) {
+		filmes.add(filme);
+		listaFilmes();
+	}
+		
 	
 	public boolean existeFilme(String nome) {
 		

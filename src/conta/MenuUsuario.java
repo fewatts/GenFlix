@@ -32,12 +32,12 @@ public class MenuUsuario {
 			
 			switch(opcao){
 			case 1 -> {
-				// Listagem de filmes
+				//  Listagem de filmes
 				//conta.listaFilmes();
 				}
 			case 2 ->{
-			//Filme filme = addFilme();
-			//conta.addFilme(filme)
+			Filme filme = addFilme();
+			conta.addFilme(filme);
 				
 			}
 			case 3 ->{
@@ -62,7 +62,7 @@ public class MenuUsuario {
 
 	
 	/// Metodos de filme
-	private static void addFilme() {
+	private static Filme addFilme() {
 		String titulo,genero;
 		Integer classificacao,status,duracao;
 		
@@ -102,8 +102,8 @@ public class MenuUsuario {
 		
 			}while(opcaoInvalida);
 		}
-		
-			//return Filme filme = new Filme(titulo, genero,duracao,status,classificacao);
+		 	Filme filme = new Filme(titulo, genero,duracao,status,classificacao);
+			return filme;
 		
 	}
 	
@@ -115,7 +115,7 @@ public class MenuUsuario {
 		while(!finalizado) {
 			String nome;
 			
-		conta.visualizaFilmes();
+		//conta.visualizarFilmes();
 			
 		System.out.println("Digite o nome do filme a ser deletado:");
 		scan.skip("\\R?");
