@@ -1,6 +1,5 @@
 package conta;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import conta.model.Conta;
@@ -94,6 +93,8 @@ public class MenuUsuario {
 		System.out.println("   3 - ★★★☆☆ | 4 - ★★★★☆ | 5 - ★★★★★");
 		System.out.println("   ");
 		classificacao = scan.nextInt();
+		
+		
 		
 		if(classificacao < 0 || classificacao > 5) {
 			

@@ -47,5 +47,10 @@ public class ProducaoAudioVisual {
 	public void setClassificacao(int classificacao) {
 		this.classificacao = classificacao;
 	}
+
+	public String getDuracao() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
