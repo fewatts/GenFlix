@@ -38,44 +38,43 @@ public class Conta {
 	}
 
 	public void listaFilmes() {
-		System.out.println("**********************************");
+		System.out.println("\n**********************************");
 		System.out.println("          Lista de filmes         ");
-		System.out.println("**********************************");
-		for(Filme filme : filmes) {
+		System.out.println("**********************************\n");
+		for (Filme filme : filmes) {
 			System.out.println("               FILME                ");
+			System.out.println("------------------------------------");
 			System.out.println("\nTitulo: " + filme.getTitulo());
 			System.out.println("\nGenero: " + filme.getGenero());
 			System.out.println("\nDuração: " + filme.getDuracao());
-			System.out.println("\nStatus: " + filme.getStatus());
-			
-			switch(filme.getClassificacao()) {
-			case 1 ->{
-				System.out.println("\nClassificação:");
-				System.out.println("\n0 - ☆☆☆☆☆");
+
+			if (filme.getStatus() != 0) {
+				switch (filme.getClassificacao()) {
+				case 0 -> {
+					System.out.println("\nClassificação: ☆☆☆☆☆");
+				}
+				case 1 -> {
+					System.out.println("\nClassificação: ★☆☆☆☆");
+				}
+				case 2 -> {
+					System.out.println("\nClassificação: ★★☆☆☆");
+				}
+				case 3 -> {
+					System.out.println("\nClassificação: ★★★☆☆");
+				}
+				case 4 -> {
+					System.out.println("\nClassificação: ★★★★☆");
+				}
+				case 5 -> {
+					System.out.println("\nClassificação: ★★★★★");
+					System.out.println("\n**********************************\n");
+				}
+				}
+
 			}
-			case 2 ->{
-				System.out.println("\nClassificação:");
-				System.out.println("\n1 - ★☆☆☆☆");
+			else {
+				System.out.println("\nStatus: Não Assistido \n\n");
 			}
-			case 3 ->{
-				System.out.println("\nClassificação:");
-				System.out.println("\n2 - ★★☆☆☆");
-			}
-			case 4 ->{
-			System.out.println("\nClassificação:");
-				System.out.println("\n3 - ★★★☆☆");
-			}
-			case 5 ->{
-			System.out.println("\nClassificação:");
-				System.out.println("\n4 - ★★★★☆");
-			}
-			case 6 ->{
-			System.out.println("\nClassificação:");
-				System.out.println("\n5 - ★★★★★");
-			}
-		}
-			//System.out.println("\nClassificação: " + filme.getClassificacao(avaliar));
-			System.out.println("**********************************\n");
 		}
 	}
 
