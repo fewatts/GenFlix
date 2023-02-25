@@ -1,6 +1,5 @@
 package conta;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import conta.model.Conta;
@@ -31,8 +30,17 @@ public class MenuUsuario {
 
 			switch (opcao) {
 			case 1 -> {
+<<<<<<< HEAD
 				// Listagem de filmes
 				// conta.listaFilmes();
+=======
+				conta.listaFilmes();
+				}
+			case 2 ->{
+			Filme filme = addFilme();
+			conta.addFilme(filme);
+				
+>>>>>>> Luan_listaFilmes
 			}
 			case 2 -> {
 				// Filme filme = addFilme();
@@ -41,8 +49,12 @@ public class MenuUsuario {
 			}
 			case 3 -> {
 				deletarFilme(conta);
+<<<<<<< HEAD
 				// conta.deletarFilme(nome);
 
+=======
+				
+>>>>>>> Luan_listaFilmes
 			}
 
 			case 4 -> {
@@ -57,10 +69,17 @@ public class MenuUsuario {
 	}
 
 	/// Metodos de filme
+<<<<<<< HEAD
 	private static void addFilme() {
 		String titulo, genero;
 		Integer classificacao, status, duracao;
 
+=======
+	private static Filme addFilme() {
+		String titulo,genero;
+		Integer classificacao,status,duracao;
+		
+>>>>>>> Luan_listaFilmes
 		System.out.println("Digite o nome do filme:");
 		scan.skip("\\R?");
 		titulo = scan.nextLine();
@@ -84,6 +103,7 @@ public class MenuUsuario {
 
 			boolean opcaoInvalida = true;
 			do {
+<<<<<<< HEAD
 				System.out.println("Com quantas estrelas você classifica esse filme?");
 				System.out.println("   0 - ☆☆☆☆☆ | 1 - ★☆☆☆☆ | 2 - ★★☆☆☆");
 				System.out.println("   3 - ★★★☆☆ | 4 - ★★★★☆ | 5 - ★★★★★");
@@ -101,6 +121,26 @@ public class MenuUsuario {
 
 		// return Filme filme = new Filme(titulo, genero,duracao,status,classificacao);
 
+=======
+		System.out.println("Com quantas estrelas você classifica esse filme?");
+		System.out.println("   0 - ☆☆☆☆☆ | 1 - ★☆☆☆☆ | 2 - ★★☆☆☆");
+		System.out.println("   3 - ★★★☆☆ | 4 - ★★★★☆ | 5 - ★★★★★");
+		System.out.println("   ");
+		classificacao = scan.nextInt();
+		
+		
+		
+		if(classificacao < 0 || classificacao > 5) {
+			
+			System.out.println("Classificação invalida! Digite novamente");
+		}else opcaoInvalida = false;
+		
+			}while(opcaoInvalida);
+		}
+		 	Filme filme = new Filme(titulo, genero,duracao,status,classificacao);
+			return filme;
+		
+>>>>>>> Luan_listaFilmes
 	}
 
 	private static void deletarFilme(Conta conta) {
@@ -108,6 +148,7 @@ public class MenuUsuario {
 
 		while (!finalizado) {
 			String nome;
+<<<<<<< HEAD
 
 			conta.visualizaFilmes();
 
@@ -123,6 +164,24 @@ public class MenuUsuario {
 				System.out.println("Filme deletado com sucesso!");
 
 			} else {
+=======
+			
+		//conta.visualizarFilmes();
+			
+		System.out.println("Digite o nome do filme a ser deletado:");
+		scan.skip("\\R?");
+		nome = scan.nextLine();
+		
+		temFilme=conta.existeFilme(nome);
+		
+		
+		if(temFilme) {
+			
+			conta.deletaFilme(nome);
+			System.out.println("Filme deletado com sucesso!");
+			
+			}else {
+>>>>>>> Luan_listaFilmes
 				int continuar;
 				boolean pararElse = false;
 

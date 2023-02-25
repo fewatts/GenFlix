@@ -1,12 +1,16 @@
 package conta.model;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Scanner;
+=======
+>>>>>>> Luan_listaFilmes
 
 public class Conta {
 	private String usuario;
 	private String senha;
 	private ArrayList<Filme> filmes = new ArrayList<>();
+	// colocar filmes dentro do new Arraylist;
 
 	public Conta(String usuario, String senha) {
 		this.usuario = usuario;
@@ -37,11 +41,59 @@ public class Conta {
 		this.filmes = filmes;
 	}
 
+<<<<<<< HEAD
 	public void visualizaFilmes() {
+=======
+	public void listaFilmes() {
+		System.out.println("\n**********************************");
+		System.out.println("          Lista de filmes         ");
+		System.out.println("**********************************\n");
+		for (Filme filme : filmes) {
+			System.out.println("               FILME                ");
+			System.out.println("------------------------------------");
+			System.out.println("\nTitulo: " + filme.getTitulo());
+			System.out.println("\nGenero: " + filme.getGenero());
+			System.out.println("\nDuração: " + filme.getDuracao());
+
+			if (filme.getStatus() != 0) {
+				switch (filme.getClassificacao()) {
+				case 0 -> {
+					System.out.println("\nClassificação: ☆☆☆☆☆");
+				}
+				case 1 -> {
+					System.out.println("\nClassificação: ★☆☆☆☆");
+				}
+				case 2 -> {
+					System.out.println("\nClassificação: ★★☆☆☆");
+				}
+				case 3 -> {
+					System.out.println("\nClassificação: ★★★☆☆");
+				}
+				case 4 -> {
+					System.out.println("\nClassificação: ★★★★☆");
+				}
+				case 5 -> {
+					System.out.println("\nClassificação: ★★★★★");
+					System.out.println("\n**********************************\n");
+				}
+				}
+
+			}
+			else {
+				System.out.println("\nStatus: Não Assistido \n\n");
+			}
+		}
+	}
+
+	public void addFilme(Filme filme) {
+		filmes.add(filme);
+		listaFilmes();
+>>>>>>> Luan_listaFilmes
 	}
 
 	public boolean existeFilme(String nome) {
 
+<<<<<<< HEAD
 		// percorrendo a lista de filmes pra verificar se o filme existe nessa lista
 		for (Filme filme : filmes) {
 			String titulo = filme.getTitulo();
@@ -53,6 +105,13 @@ public class Conta {
 
 		return false;
 	}
+
+	public void deletaFilme(String nome) {
+	}
+=======
+		return false;
+	}
+>>>>>>> Luan_listaFilmes
 
 	public void deletaFilme(String nome) {
 	}
