@@ -3,13 +3,21 @@ package conta.model;
 public abstract class ProducaoAudioVisual {
 	private String titulo;
 	private String genero;
+	private int duracao;
 	private int status;
 	private int classificacao;
+<<<<<<< HEAD
 
 	public ProducaoAudioVisual(String titulo, String genero, int status, int classificacao) {
 
+=======
+	
+	public ProducaoAudioVisual(String titulo, String genero, int duracao, int status, int classificacao) {
+		
+>>>>>>> Luan_listaFilmes
 		this.titulo = titulo;
 		this.genero = genero;
+		this.duracao = duracao;
 		this.status = status;
 		this.classificacao = classificacao;
 	}
@@ -29,6 +37,16 @@ public abstract class ProducaoAudioVisual {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
+	
+	
+
+	public int getDuracao() {
+		return duracao;
+	}
+
+	public void setDuracao(int duracao) {
+		this.duracao = duracao;
+	}
 
 	public int getStatus() {
 		return status;
@@ -46,6 +64,10 @@ public abstract class ProducaoAudioVisual {
 		this.classificacao = classificacao;
 	}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> Luan_listaFilmes
 	public void visualizar() {
 		System.out.println("***********************");
 		System.out.println("                       ");
@@ -57,5 +79,9 @@ public abstract class ProducaoAudioVisual {
 		System.out.println("Status: " + this.status);
 		System.out.println("Classificação: " + this.classificacao);
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> Luan_listaFilmes
 }
