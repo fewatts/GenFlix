@@ -31,8 +31,7 @@ public class MenuUsuario {
 			
 			switch(opcao){
 			case 1 -> {
-				//  Listagem de filmes
-				//conta.listaFilmes();
+				conta.listaFilmes();
 				}
 			case 2 ->{
 			Filme filme = addFilme();
@@ -41,7 +40,6 @@ public class MenuUsuario {
 			}
 			case 3 ->{
 				deletarFilme(conta);
-				//conta.deletarFilme(nome);
 				
 			}
 	
