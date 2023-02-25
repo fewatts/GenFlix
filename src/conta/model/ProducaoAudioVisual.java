@@ -3,13 +3,15 @@ package conta.model;
 public class ProducaoAudioVisual {
 	private String titulo;
 	private String genero;
+	private int duracao;
 	private int status;
 	private int classificacao;
 	
-	public ProducaoAudioVisual(String titulo, String genero, int status, int classificacao) {
+	public ProducaoAudioVisual(String titulo, String genero, int duracao, int status, int classificacao) {
 		
 		this.titulo = titulo;
 		this.genero = genero;
+		this.duracao = duracao;
 		this.status = status;
 		this.classificacao = classificacao;
 	}
@@ -31,6 +33,16 @@ public class ProducaoAudioVisual {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
+	
+	
+
+	public int getDuracao() {
+		return duracao;
+	}
+
+	public void setDuracao(int duracao) {
+		this.duracao = duracao;
+	}
 
 	public int getStatus() {
 		return status;
@@ -48,9 +60,17 @@ public class ProducaoAudioVisual {
 		this.classificacao = classificacao;
 	}
 
-	public String getDuracao() {
-		// TODO Auto-generated method stub
-		return null;
+
+	public void visualizar() {
+		System.out.println("***********************");
+		System.out.println("                       ");
+		System.out.println("     DADOS DO FILME    ");
+		System.out.println("                       ");
+		System.out.println("***********************");
+		System.out.println("Título: " + this.titulo);
+		System.out.println("Gênero: " + this.genero);
+		System.out.println("Status: " + this.status);
+		System.out.println("Classificação: " + this.classificacao);
 	}
 	
 }
