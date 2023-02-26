@@ -30,26 +30,27 @@ public class StartGenFlix {
 			opcao = leia.nextInt();
 
 			switch(opcao){
-			case 1 -> login(contas);
-			
-			case 2 ->{
-				Conta conta = criarConta();
-				boolean verificar = false;
-
-				for(Conta c : contas){
-					if (c.getUsuario().equals(conta.getUsuario())) {
-						verificar = true;
-						System.out.println("Usuario já cadastrado, tente novamente!");
-						break;
+				case 1 ->{
+					Conta conta = criarConta();
+					boolean verificar = false;
+	
+					for(Conta c : contas){
+						if (c.getUsuario().equals(conta.getUsuario())) {
+							verificar = true;
+							System.out.println("Usuario já cadastrado, tente novamente!");
+							break;
+						}
+	
 					}
-
+					if(!verificar){
+						contas.add(conta);
+						MenuUsuario.init(conta);
+					}
+	
 				}
-				if(!verificar){
-					contas.add(conta);
-					MenuUsuario.init(conta);
-				}
-
-			}
+			case 2 -> login(contas);
+			
+			
 			case 3 -> atualizarConta(contas);
 			case 4 -> apagarConta(contas);
 			
@@ -104,7 +105,6 @@ public class StartGenFlix {
 						}while(resposta != 1 && resposta != 2);
 								
 					}while(resposta != 1);
-					
 					c.setUsuario(usuario);
 					c.setSenha(senha);
 				}else{
