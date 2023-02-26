@@ -6,7 +6,6 @@ public class Conta {
 	private String usuario;
 	private String senha;
 	private ArrayList<Filme> filmes = new ArrayList<>();
-	// colocar filmes dentro do new Arraylist;
 
 	public Conta(String usuario, String senha) {
 		this.usuario = usuario;
@@ -39,43 +38,16 @@ public class Conta {
 
 
 	public void listaFilmes() {
-		System.out.println("\n**********************************");
+		if(filmes.isEmpty()){
+			System.out.println("  Sua lista de filmes está vazia!   ");
+			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+			return;
+		}	
+		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 		System.out.println("          Lista de filmes         ");
-		System.out.println("**********************************\n");
+		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 		for (Filme filme : filmes) {
-			System.out.println("               FILME                ");
-			System.out.println("------------------------------------");
-			System.out.println("\nTitulo: " + filme.getTitulo());
-			System.out.println("\nGenero: " + filme.getGenero());
-			System.out.println("\nDuração: " + filme.getDuracao());
-
-			if (filme.getStatus() != 0) {
-				switch (filme.getClassificacao()) {
-				case 0 -> {
-					System.out.println("\nClassificação: ☆☆☆☆☆");
-				}
-				case 1 -> {
-					System.out.println("\nClassificação: ★☆☆☆☆");
-				}
-				case 2 -> {
-					System.out.println("\nClassificação: ★★☆☆☆");
-				}
-				case 3 -> {
-					System.out.println("\nClassificação: ★★★☆☆");
-				}
-				case 4 -> {
-					System.out.println("\nClassificação: ★★★★☆");
-				}
-				case 5 -> {
-					System.out.println("\nClassificação: ★★★★★");
-					System.out.println("\n**********************************\n");
-				}
-				}
-
-			}
-			else {
-				System.out.println("\nStatus: Não Assistido \n\n");
-			}
+			filme.visualizar();
 		}
 	}
 
@@ -105,7 +77,14 @@ public class Conta {
 	}
 
 	public void deletaFilme(String nome) {
-
+		Filme filme = null;
+		for (Filme f : filmes) {
+			if (f.getTitulo().equalsIgnoreCase(nome)){
+				filme = f;
+			}
+				
+		}
+		filmes.remove(filme);
 	}
 
 }

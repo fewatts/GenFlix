@@ -59,15 +59,37 @@ public abstract class ProducaoAudioVisual {
 	}
 
 	public void visualizar() {
-		System.out.println("***********************");
-		System.out.println("                       ");
+		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 		System.out.println("     DADOS DO FILME    ");
-		System.out.println("                       ");
-		System.out.println("***********************");
+		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 		System.out.println("Título: " + this.titulo);
 		System.out.println("Gênero: " + this.genero);
-		System.out.println("Status: " + this.status);
-		System.out.println("Classificação: " + this.classificacao);
+		switch(this.status){
+			case 1 -> System.out.println("Não assistido");
+			case 2 -> System.out.println("Assitido");
+		}
+		switch (this.classificacao) {
+			case 0 -> {
+				System.out.println("Classificação: ☆☆☆☆☆");
+			}
+			case 1 -> {
+				System.out.println("Classificação: ★☆☆☆☆");
+			}
+			case 2 -> {
+				System.out.println("Classificação: ★★☆☆☆");
+			}
+			case 3 -> {
+				System.out.println("Classificação: ★★★☆☆");
+			}
+			case 4 -> {
+				System.out.println("Classificação: ★★★★☆");
+			}
+			case 5 -> {
+				System.out.println("Classificação: ★★★★★");
+			}
+
+		}
+
 	}
 	
 }
