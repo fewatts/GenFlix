@@ -1,6 +1,7 @@
 package conta;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import conta.model.Conta;
@@ -79,14 +80,26 @@ public class StartGenFlix {
 								System.out.println("Novo usuário: " + usuario + "\nNova senha: " + senha);
 								System.out.println("Você confirma essa alteração? [1 - Sim | 2 - Não]");
 								resposta = leia.nextInt();
+								
 										
 							}while(resposta != 1);
 							
 							c.setUsuario(usuario);
 							c.setSenha(senha);
+							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+							System.out.println("         USUÁRIO EDITADO COM SUCESSO!        ");
+							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬\n\n");
+							
 						}else {
-							System.out.println("Usuário inválido! Deseja tentar novamente? [1 - Sim | 2 - Não]");
-							continuar = leia.nextInt();
+							try {
+								System.out.println("Usuário inválido! Deseja tentar novamente? [1 - Sim | 2 - Não]");
+								continuar = leia.nextInt();
+							}catch(InputMismatchException e) {
+								
+								System.out.println("Apenas [1 - Sim | 2 - Não] são válidos.");
+								leia.nextLine();
+								continuar = 0;
+							}
 						}
 					}
 				}while(continuar==1);
