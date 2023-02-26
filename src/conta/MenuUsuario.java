@@ -134,6 +134,10 @@ public class MenuUsuario {
 					}
 					if (continuar == 2) {
 						pararElse = true;
+						finalizado=true;
+					}else {
+						
+						pararElse = true;
 					}
 				}
 
