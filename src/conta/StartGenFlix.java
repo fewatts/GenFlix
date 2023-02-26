@@ -28,8 +28,13 @@ public class StartGenFlix {
 			System.out.println("                                                                   ");
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println("Digite uma opção:                                                  ");
-			opcao = leia.nextInt();
-
+			try{
+				opcao = leia.nextInt();
+			}catch(InputMismatchException e){
+				System.out.println("Apenas números inteiroa!");
+				leia.nextLine();
+				opcao = 0;
+			}
 			switch(opcao){
 				case 1 ->{
 					Conta conta = criarConta();
@@ -50,11 +55,8 @@ public class StartGenFlix {
 	
 				}
 			case 2 -> login(contas);
-			
-			
 			case 3 -> atualizarConta(contas);
 			case 4 -> apagarConta(contas);
-			
 			case 5 ->{
 				System.out.println("Sistema encerrado com sucesso!");
 				System.out.println("Volte sempre!\n\n");
