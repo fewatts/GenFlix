@@ -12,6 +12,7 @@ public class StartGenFlix {
 	private static Scanner leia = new Scanner(System.in);
 
 	public static void main(String[] args) {
+		// remover apos muda todos os metodos de conta para controle
 		ArrayList<Conta> contas = new ArrayList<Conta>();
 
 		int opcao;
@@ -39,11 +40,8 @@ public class StartGenFlix {
 				opcao = 0;
 			}
 			switch (opcao) {
-			case 1 -> {
-				Conta conta = criarConta();
-				contaController.criarConta(conta);
-			}
-			case 2 -> login(contas);
+			case 1 -> criarConta();
+			case 2 -> login();
 			case 3 -> atualizarConta(contas);
 			case 4 -> apagarConta(contas);
 			case 5 -> {
@@ -168,12 +166,11 @@ public class StartGenFlix {
 		} while (continuar == 1);
 	}
 
-	private static void login(ArrayList<Conta> contas) {
+	private static void login() {
 		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 		System.out.println("             LOGIN               ");
 		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 
-		Scanner leia = new Scanner(System.in);
 		String usuario, senha;
 		boolean acesso = false;
 
@@ -196,20 +193,19 @@ public class StartGenFlix {
 					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 					continuar = leia.nextInt();
 				} while (continuar != 1 && continuar != 2);
-				if (continuar == 2)
+				if (continuar == 2) {					
 					acesso = true;
+				}
 			}
-
 		} while (!acesso);
 
 	}
 
-	private static Conta criarConta() {
+	private static void criarConta() {
 		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 		System.out.println("          CRIAR CONTA            ");
 		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 
-		Scanner leia = new Scanner(System.in);
 		String usuario, senha;
 		int resp = 0;
 		Conta conta = null;
@@ -236,7 +232,7 @@ public class StartGenFlix {
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			}
 		} while (resp != 1);
-		return conta;
+		contaController.criarConta(conta);
 	}
 
 }

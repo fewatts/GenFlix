@@ -44,11 +44,9 @@ public class ContaController implements ContaRepository {
 			if (f.getTitulo().equals(filme.getTitulo())) {
 				System.out.println("   Filme já cadastrado  ");
 				return;
-
 			}
 		}
 		conta.getFilmes().add(filme);
-		;
 		System.out.println("   Filme adicionado com sucesso!  ");
 
 	}
