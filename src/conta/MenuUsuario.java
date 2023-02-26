@@ -15,7 +15,7 @@ public class MenuUsuario {
 		do {
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println("                                                                   ");
-			System.out.println("                     BEM-VINDE " + conta.getUsuario() + "              ");
+			System.out.println("                   BEM-VINDE " + conta.getUsuario() + "            ");
 			System.out.println("                                                                   ");
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println("          Meus Filmes:                                             ");
@@ -26,23 +26,19 @@ public class MenuUsuario {
 			System.out.println("                   4 - Sair da conta                               ");
 			System.out.println("                                                                   ");
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-			System.out.println("¬¬¬Digite sua opção:                                               ");
-			System.out.println("                                                                   ");
+			System.out.println("Digite sua opção:                                                  ");
 			opcao = scan.nextInt();
 
 			switch (opcao) {
 			case 1 -> {
-				contaController.listaFilmes(conta);
+				conta.listaFilmes();
 			}
 			case 2 -> {
 				Filme filme = addFilme();
 				contaController.cadastrarFilme(filme, conta);
-
 			}
 			case 3 -> {
 				deletarFilme(conta);
-				// conta.deletarFilme(nome);
-
 			}
 
 			case 4 -> {
@@ -60,7 +56,6 @@ public class MenuUsuario {
 	private static Filme addFilme() {
 		String titulo, genero;
 		Integer classificacao, status, duracao;
-
 		System.out.println("Digite o nome do filme:");
 		scan.skip("\\R?");
 		titulo = scan.nextLine();
@@ -104,7 +99,6 @@ public class MenuUsuario {
 
 		}
 		return new Filme(titulo, genero, duracao, status, classificacao);
-
 	}
 
 	private static void deletarFilme(Conta conta) {
@@ -113,7 +107,7 @@ public class MenuUsuario {
 		while (!finalizado) {
 			String nome;
 
-			conta.visualizaFilmes();
+			// conta.visualizarFilmes();
 
 			System.out.println("Digite o nome do filme a ser deletado:");
 			scan.skip("\\R?");
@@ -127,6 +121,7 @@ public class MenuUsuario {
 				System.out.println("Filme deletado com sucesso!");
 
 			} else {
+
 				int continuar;
 				boolean pararElse = false;
 
@@ -139,9 +134,15 @@ public class MenuUsuario {
 					}
 					if (continuar == 2) {
 						pararElse = true;
+						finalizado = true;
+					} else {
+
+						pararElse = true;
 					}
 				}
+
 			}
+
 		}
 	}
 }
