@@ -8,8 +8,10 @@ import conta.controller.ContaController;
 import conta.model.Conta;
 
 public class StartGenFlix {
+
+	static Scanner leia = new Scanner(System.in);
+
 	private static ContaController contaController = new ContaController();
-	private static Scanner leia = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		// remover apos muda todos os metodos de conta para controle
@@ -56,18 +58,17 @@ public class StartGenFlix {
 	}
 
 	private static void atualizarConta(ArrayList<Conta> contas) {
-		String usuario, senha;
-		int resposta, continuar = 0;
-		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-		System.out.println("               ATUALIZAR CONTAS              ");
-		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-
 		if (contas.isEmpty()) {
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println("         NÃO HÁ CONTAS CADASTRADAS...        ");
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-			return;
 		}
+		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+		System.out.println("                 ATUALIZAR                   ");
+		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+		String usuario, senha;
+		int resp;
+		int continuar = 0;
 		do {
 			System.out.println("Digite o nome de usuário: ");
 			leia.skip("\\R?");
@@ -75,38 +76,50 @@ public class StartGenFlix {
 
 			System.out.println("Digite sua senha: ");
 			senha = leia.nextLine();
-			// contaController.
+			
 			for (Conta c : contas) {
 				if (c.getUsuario().equalsIgnoreCase(usuario) && c.getSenha().equalsIgnoreCase(senha)) {
 					do {
 						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-						System.out.printf("\nUsuário: %s\nSenha: %s\n", c.getUsuario(), c.getSenha());
+						System.out.printf("Usuário atual: %s\nSenha atual: %s\n", c.getUsuario(), c.getSenha());
 						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+						System.out.println("Novo usuário: ");
 						leia.skip("\\R?");
 						usuario = leia.nextLine();
+						
 						System.out.println("Nova senha: ");
 						senha = leia.nextLine();
-						System.out.println("Novo usuário: " + usuario + "\nNova senha: " + senha);
+						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+						System.out.printf("Usuário atualizado: %s\nSenha atualizada: %s\n", usuario, senha);
+						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 						do {
-							System.out.println("Você confirma essa alteração? [1 - Sim | 2 - Não]");
-							resposta = leia.nextInt();
-							if (resposta == 2)
-								return;
-						} while (resposta != 1 && resposta != 2);
-
-					} while (resposta != 1);
+							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+							System.out.printf("\n   Confirma os dados? [1- Sim | 2- Não]   \n");
+							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+							resp = leia.nextInt();
+						} while (resp != 1 && resp != 2);
+					} while (resp != 1);
 					c.setUsuario(usuario);
 					c.setSenha(senha);
+					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+					System.out.println("             Usuário e senha mudados com sucesso!                   ");
+					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+					break;
 				} else {
 					do {
-						System.out.println("Usuário inválido! Deseja tentar novamente? [1 - Sim | 2 - Não]");
+						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+						System.out.println("   Usuário ou senha inválido. Tentar Novamente? [1- Sim | 2- Não]   ");
+						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 						continuar = leia.nextInt();
+						if (continuar == 2)
+							return;
 					} while (continuar != 1 && continuar != 2);
+			 
 				}
-
+				
 			}
-
-		} while (continuar == 1);
+			
+		}while(continuar == 1);
 
 	}
 
@@ -164,6 +177,7 @@ public class StartGenFlix {
 			}
 
 		} while (continuar == 1);
+
 	}
 
 	private static void login() {
@@ -196,7 +210,9 @@ public class StartGenFlix {
 				if (continuar == 2) {					
 					acesso = true;
 				}
+
 			}
+
 		} while (!acesso);
 
 	}
@@ -231,6 +247,7 @@ public class StartGenFlix {
 				System.out.println("  Digite os dados novamente:     ");
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			}
+
 		} while (resp != 1);
 		contaController.criarConta(conta);
 	}
