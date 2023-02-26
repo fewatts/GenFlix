@@ -80,8 +80,14 @@ public class Conta {
 	}
 
 	public void addFilme(Filme filme) {
-		filmes.add(filme);
-		listaFilmes();
+		for (Filme f : this.getFilmes()) {
+			if (f.getTitulo().equals(filme.getTitulo())) {
+				System.out.println("   Filme já cadastrado  ");
+				return;
+			}
+		}
+		this.getFilmes().add(filme);
+		System.out.println("   Filme adicionado com sucesso!  ");
 	}
 
 	public boolean existeFilme(String nome) {

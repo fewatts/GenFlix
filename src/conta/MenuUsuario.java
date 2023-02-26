@@ -30,22 +30,10 @@ public class MenuUsuario {
 			opcao = scan.nextInt();
 
 			switch (opcao) {
-			case 1 -> {
-				conta.listaFilmes();
-			}
-			case 2 -> {
-				Filme filme = addFilme();
-				contaController.cadastrarFilme(filme, conta);
-			}
-			case 3 -> {
-				deletarFilme(conta);
-			}
-
-			case 4 -> {
-				System.out.println("Você saiu da sua conta.");
-
-			}
-
+			case 1 -> conta.listaFilmes();
+			case 2 -> addFilme(conta);
+			case 3 -> deletarFilme(conta);
+			case 4 -> System.out.println("Você saiu da sua conta.");
 			default -> System.out.println("Opção inválida, tente novamente...");
 			}
 
@@ -53,7 +41,7 @@ public class MenuUsuario {
 	}
 
 	/// Metodos de filme
-	private static Filme addFilme() {
+	private static void addFilme(Conta conta) {
 		String titulo, genero;
 		Integer classificacao, status, duracao;
 		System.out.println("Digite o nome do filme:");
@@ -98,7 +86,9 @@ public class MenuUsuario {
 			} while (opcaoInvalida);
 
 		}
-		return new Filme(titulo, genero, duracao, status, classificacao);
+
+		Filme filme = new Filme(titulo, genero, duracao, status, classificacao);
+		conta.addFilme(filme);
 	}
 
 	private static void deletarFilme(Conta conta) {

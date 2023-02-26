@@ -38,22 +38,4 @@ public class ContaController implements ContaRepository {
 
 	}
 
-	@Override
-	public void cadastrarFilme(Filme filme, Conta conta) {
-		for (Filme f : conta.getFilmes()) {
-			if (f.getTitulo().equals(filme.getTitulo())) {
-				System.out.println("   Filme já cadastrado  ");
-				return;
-			}
-		}
-		conta.getFilmes().add(filme);
-		System.out.println("   Filme adicionado com sucesso!  ");
-
-	}
-
-	@Override
-	public void listaFilmes(Conta conta) {
-		conta.getFilmes().forEach(filme -> filme.visualizar());
-	}
-
 }
