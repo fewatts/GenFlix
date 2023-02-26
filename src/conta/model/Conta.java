@@ -1,10 +1,6 @@
 package conta.model;
 
 import java.util.ArrayList;
-<<<<<<< HEAD
-import java.util.Scanner;
-=======
->>>>>>> Luan_listaFilmes
 
 public class Conta {
 	private String usuario;
@@ -41,9 +37,7 @@ public class Conta {
 		this.filmes = filmes;
 	}
 
-<<<<<<< HEAD
-	public void visualizaFilmes() {
-=======
+
 	public void listaFilmes() {
 		System.out.println("\n**********************************");
 		System.out.println("          Lista de filmes         ");
@@ -88,12 +82,10 @@ public class Conta {
 	public void addFilme(Filme filme) {
 		filmes.add(filme);
 		listaFilmes();
->>>>>>> Luan_listaFilmes
 	}
 
 	public boolean existeFilme(String nome) {
 
-<<<<<<< HEAD
 		// percorrendo a lista de filmes pra verificar se o filme existe nessa lista
 		for (Filme filme : filmes) {
 			String titulo = filme.getTitulo();
@@ -107,13 +99,7 @@ public class Conta {
 	}
 
 	public void deletaFilme(String nome) {
-	}
-=======
-		return false;
-	}
->>>>>>> Luan_listaFilmes
 
-	public void deletaFilme(String nome) {
 	}
 
 }

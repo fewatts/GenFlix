@@ -8,21 +8,14 @@ public class Filme extends ProducaoAudioVisual {
 		this.duracao = duracao;
 	}
 
-<<<<<<< HEAD
 	public int getDuracao() {
 		return duracao;
 	}
-=======
-	public Filme() {
-	}
-
->>>>>>> Luan_listaFilmes
 
 	public void setDuracao(int duracao) {
 		this.duracao = duracao;
 	}
 
-<<<<<<< HEAD
 	@Override
 	public void visualizar() {
 
@@ -36,11 +29,5 @@ public class Filme extends ProducaoAudioVisual {
 	 * "\nTitulo: "+ this.getTitulo()+ "\nClassificação: "+
 	 * this.getClassificacao()); }
 	 */
-=======
-	public int getDuracao() {
-		return duracao;
-	}
-
->>>>>>> Luan_listaFilmes
 
 }

@@ -6,15 +6,9 @@ public abstract class ProducaoAudioVisual {
 	private int duracao;
 	private int status;
 	private int classificacao;
-<<<<<<< HEAD
-
-	public ProducaoAudioVisual(String titulo, String genero, int status, int classificacao) {
-
-=======
 	
 	public ProducaoAudioVisual(String titulo, String genero, int duracao, int status, int classificacao) {
 		
->>>>>>> Luan_listaFilmes
 		this.titulo = titulo;
 		this.genero = genero;
 		this.duracao = duracao;
@@ -64,10 +58,6 @@ public abstract class ProducaoAudioVisual {
 		this.classificacao = classificacao;
 	}
 
-<<<<<<< HEAD
-=======
-
->>>>>>> Luan_listaFilmes
 	public void visualizar() {
 		System.out.println("***********************");
 		System.out.println("                       ");
@@ -79,9 +69,5 @@ public abstract class ProducaoAudioVisual {
 		System.out.println("Status: " + this.status);
 		System.out.println("Classificação: " + this.classificacao);
 	}
-<<<<<<< HEAD
-
-=======
 	
->>>>>>> Luan_listaFilmes
 }
