@@ -204,10 +204,12 @@ public class StartGenFlix {
 			
 			if(!acesso){
 				int continuar;
-				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-				System.out.println("   Usuário ou senha inválido. Tentar Novamente? (0 - Não | 1 - Sim) ");
-				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-				continuar = leia.nextInt();
+				do{
+					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+					System.out.println("   Usuário ou senha inválido. Tentar Novamente? (1 - Sim | 2 - Não) ");
+					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+					continuar = leia.nextInt();
+				}while(continuar != 1 && continuar != 2);
 				if(continuar == 0) 
 					acesso = true;
 			}
@@ -235,9 +237,10 @@ public class StartGenFlix {
 			leia.skip("\\R?");
 			senha = leia.nextLine();
 
-			System.out.printf("\nConfirma os dados? [1- Sim | 2- Não]\n");
-			resp = leia.nextInt();
-
+			do{
+				System.out.printf("\nConfirma os dados? [1- Sim | 2- Não]\n");
+				resp = leia.nextInt();
+			}while(resp != 1 && resp != 2);
 			if(resp == 1){
 				conta = new Conta(usuario, senha);
 				System.out.printf("Conta %s criada com sucesso!\n\n", usuario);
