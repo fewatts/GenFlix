@@ -1,9 +1,8 @@
 package conta;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-import conta.controller.FilmeController;
+import conta.controller.ContaController;
 import conta.model.Conta;
 import conta.model.Filme;
 
@@ -11,7 +10,7 @@ public class MenuUsuario {
 	static Scanner scan = new Scanner(System.in);
 
 	public static void init(Conta conta) {
-		FilmeController filmeController = new FilmeController();
+		ContaController contaController = new ContaController();
 		int opcao;
 		do {
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
@@ -33,12 +32,11 @@ public class MenuUsuario {
 
 			switch (opcao) {
 			case 1 -> {
-				// Listagem de filmes
-				// conta.listaFilmes();
+				contaController.listaFilmes(conta);
 			}
 			case 2 -> {
-
-				filmeController.cadastrar(addFilme());
+				Filme filme = addFilme();
+				contaController.cadastrarFilme(filme, conta);
 
 			}
 			case 3 -> {
@@ -74,13 +72,17 @@ public class MenuUsuario {
 		System.out.println("Digite a duracao do filme(em minutos):");
 
 		duracao = scan.nextInt();
+		do {
+			System.out.println("Qual o status do filme?");
+			System.out.println("   1 - Não assistido");
+			System.out.println("   2 - Assistido");
+			status = scan.nextInt();
+			if (status < 1 && status > 2) {
+				System.out.println("Opção inválida! Digite novamente!");
+			}
+		} while (status < 1 && status > 2);
 
-		System.out.println("Qual o status do filme?");
-		System.out.println("   0 - Não assistido");
-		System.out.println("   1 - Assistido");
-		status = scan.nextInt();
-
-		if (status == 0) {
+		if (status == 1) {
 			classificacao = 0;
 		} else {
 
@@ -94,13 +96,13 @@ public class MenuUsuario {
 
 				if (classificacao < 0 || classificacao > 5) {
 
-					System.out.println("Classificação invalida! Digite novamente");
+					System.out.println("Classificação inválida! Digite novamente");
 				} else
 					opcaoInvalida = false;
 
 			} while (opcaoInvalida);
-		}
 
+		}
 		return new Filme(titulo, genero, duracao, status, classificacao);
 
 	}
@@ -139,9 +141,7 @@ public class MenuUsuario {
 						pararElse = true;
 					}
 				}
-
 			}
-
 		}
 	}
 }

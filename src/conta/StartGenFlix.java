@@ -3,12 +3,14 @@ package conta;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import conta.controller.ContaController;
 import conta.model.Conta;
 
 public class StartGenFlix {
-
+	private static ContaController contaController = new ContaController();
 	public static void main(String[] args) {
 		ArrayList<Conta> contas = new ArrayList<Conta>();
+		
 		Scanner leia = new Scanner(System.in);
 		int opcao;
 		do{
@@ -26,27 +28,16 @@ public class StartGenFlix {
 			System.out.println("                                                                   ");
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println("Digite uma opção:                                                  ");
+			
 			opcao = leia.nextInt();
+			
 			switch(opcao){
 			case 1 -> login(contas);
 			
 			case 2 ->{
 				Conta conta = criarConta();
-				boolean verificar = false;
-
-				for(Conta c : contas){
-					if (c.getUsuario().equals(conta.getUsuario())) {
-						verificar = true;
-						System.out.println("Usuario já cadastrado tente novamente!!");
-						break;
-					}
-				}
-
-				if(!verificar){
-					contas.add(conta);
-					MenuUsuario.init(conta);
-				}
-
+				contaController.criarConta(conta);
+				
 			}
 			case 3 ->{
 				System.out.println("Editar conta!");
@@ -134,21 +125,15 @@ public class StartGenFlix {
 			leia.skip("\\R?");
 			senha = leia.nextLine();
 
-			for (Conta c : contas) {
-				if (c.getUsuario().equals(usuario) && c.getSenha().equals(senha)) {
-					acesso = true;
-					MenuUsuario.init(c);
-					break;
-				}
-			}
+			acesso = contaController.login(usuario, senha);
 			
 			if(!acesso){
 				int continuar;
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-				System.out.println("   Usuário ou senha inválido. Tentar Novamente? (0 - Não | 1 - Sim) ");
+				System.out.println("   Usuário ou senha inválido. Tentar Novamente? [1- Sim | 2 - Não] ");
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 				continuar = leia.nextInt();
-				if(continuar == 0) 
+				if(continuar == 2) 
 					acesso = true;
 			}
 

@@ -20,11 +20,11 @@ public class Filme extends ProducaoAudioVisual{
 	}
 
 
-	/*public void visualizar() {
-		//System.out.println("------ Filme --------"+ 
+	public void visualizar() {
+		System.out.println("------ Filme --------"+ 
 							"\nTitulo: "+ this.getTitulo()+
 							"\nClassificação: "+ this.getClassificacao());  
-	}*/
+	}
 	
 	
 	
