@@ -96,7 +96,7 @@ public class Conta {
 		for (Filme filme : filmes) {
 			String titulo = filme.getTitulo();
 			// toUpperCase para identificar o filme independente da forma que o usuário digitar
-			if (titulo.toUpperCase() == nome.toUpperCase()) {
+			if (titulo.toUpperCase().equalsIgnoreCase(nome.toUpperCase())) {
 				return true;
 			}
 		}
