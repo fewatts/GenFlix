@@ -103,11 +103,20 @@ public class MenuUsuario {
 
 			boolean opcaoInvalida = true;
 			do {
-				System.out.println("Com quantas estrelas você classifica esse filme?");
-				System.out.println("   0 - ☆☆☆☆☆ | 1 - ★☆☆☆☆ | 2 - ★★☆☆☆");
-				System.out.println("   3 - ★★★☆☆ | 4 - ★★★★☆ | 5 - ★★★★★");
-				System.out.println("   ");
-				classificacao = scan.nextInt();
+				try {
+					System.out.println("Com quantas estrelas você classifica esse filme?");
+					System.out.println("   0 - ☆☆☆☆☆ | 1 - ★☆☆☆☆ | 2 - ★★☆☆☆");
+					System.out.println("   3 - ★★★☆☆ | 4 - ★★★★☆ | 5 - ★★★★★");
+					System.out.println("   ");
+					classificacao = scan.nextInt();
+				}catch(InputMismatchException e) {
+					System.out.println("                    Digite apenas números inteiros!      ");
+					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+					scan.nextLine();
+					classificacao = 0;
+				}
+				
+				
 
 				if (classificacao < 0 || classificacao > 5) 
 					System.out.println("Classificação inválida! Digite novamente.");
