@@ -77,11 +77,17 @@ public class MenuUsuario {
 		duracao = scan.nextInt();
 		
 		do {
-			System.out.println("Qual o status do filme?");
-			System.out.println("   1 - Não assistido");
-			System.out.println("   2 - Assistido");
-			status = scan.nextInt();
-			
+			try{
+				System.out.println("Qual o status do filme?");
+				System.out.println("   1 - Não assistido");
+				System.out.println("   2 - Assistido");
+				status = scan.nextInt();
+			}catch(InputMismatchException e){
+				System.out.println("                    Digite apenas números inteiros!      ");
+				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+				scan.nextLine();
+				status = 0;
+			}
 			if (status < 1 || status > 2) {
 			//if (status < 1 && status > 2) {
 				System.out.println("                   Opção inválida, tente novamente!                ");
