@@ -113,10 +113,10 @@ public class MenuUsuario {
 					System.out.println("                    Digite apenas números inteiros!      ");
 					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 					scan.nextLine();
-					classificacao = 0;
+					classificacao = 6;
 				}
 			
-				if (classificacao <= 0 || classificacao > 5) 
+				if (classificacao < 0 || classificacao > 5) 
 					System.out.println("Classificação inválida! Digite novamente.");
 				else
 					opcaoInvalida = false;
