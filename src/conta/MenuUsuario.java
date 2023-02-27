@@ -164,9 +164,16 @@ public class MenuUsuario {
 
 				while (!pararElse) {
 					do{
-						System.out.println("Filme não encontrado. Deseja tentar novamente? [1 - Sim | 2 - Não]");
-						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-						continuar = scan.nextInt();
+						try{
+							System.out.println("Filme não encontrado. Deseja tentar novamente? [1 - Sim | 2 - Não]");
+							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+							continuar = scan.nextInt();
+						}catch(InputMismatchException e){
+							System.out.println("                    Digite apenas números inteiros!      ");
+							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+							scan.nextLine();
+							continuar = 0;
+						}
 						if (continuar < 1 || continuar > 2) {
 							System.out.println("Opção invalida!");
 						}
