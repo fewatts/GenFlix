@@ -1,6 +1,7 @@
 package conta.model;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import conta.util.Cores;
@@ -53,9 +54,17 @@ public class Conta {
 		int opcaoListaFilme = 0;
 		
 		do {
-			System.out.println("Qual lista de filmes deseja visualizar?");
-			System.out.println("[1- Não assistidos | 2- Assistidos]");
-			opcaoListaFilme = leia.nextInt(); 
+			try{
+				System.out.println("Qual lista de filmes deseja visualizar?");
+				System.out.println("[1- Não assistidos | 2- Assistidos]");
+				opcaoListaFilme = leia.nextInt();
+			}catch(InputMismatchException e){
+				System.out.println("                  Digite apenas números inteiros!                  ");
+				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+				leia.nextLine();
+				opcaoListaFilme = 0;
+			} 
+			
 		} while (opcaoListaFilme < 1 || opcaoListaFilme > 2);
 		
 		System.out.print(Cores.TEXT_YELLOW);
@@ -76,6 +85,7 @@ public class Conta {
 				System.out.println("   Filme já cadastrado  ");
 				return;
 			}
+
 		}
 		this.getFilmes().add(filme);
 		System.out.println("   Filme adicionado com sucesso!  ");
@@ -88,6 +98,7 @@ public class Conta {
 			if (titulo.toUpperCase().equalsIgnoreCase(nome.toUpperCase())) {
 				return true;
 			}
+
 		}
 
 		return false;
