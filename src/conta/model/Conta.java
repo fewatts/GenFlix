@@ -64,7 +64,7 @@ public class Conta {
 				leia.nextLine();
 				opcaoListaFilme = 0;
 			} 
-			
+
 		} while (opcaoListaFilme < 1 || opcaoListaFilme > 2);
 		
 		System.out.print(Cores.TEXT_YELLOW);
