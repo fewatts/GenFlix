@@ -40,7 +40,8 @@ public class StartGenFlix {
 			System.out.println("                        4- Deletar conta                           ");// ok
 			System.out.println("                        5- Encerrar                                ");// ok
 			System.out.println("                                                                   ");
-			System.out.println("                        Digite uma opção:                          ");    			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+			System.out.println("                        Digite uma opção:                          ");    			
+			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 
 			try {
 				opcao = leia.nextInt();
