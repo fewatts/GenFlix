@@ -45,8 +45,8 @@ public class MenuUsuario {
 			case 2 -> addFilme(conta);
 			case 3 -> deletarFilme(conta);
 			case 4 -> System.out.println("                        Você saiu da sua conta.                    ");
-			
-			default ->{
+
+			default -> {
 				System.out.println("                   Opção inválida, tente novamente!                ");
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 
@@ -60,7 +60,7 @@ public class MenuUsuario {
 	private static void addFilme(Conta conta) {
 		String titulo, genero;
 		Integer classificacao, status, duracao;
-		
+
 		System.out.print(Cores.TEXT_YELLOW);
 		System.out.println("                          ADICIONAR FILME                          ");
 		System.out.println(Cores.TEXT_RESET);
@@ -75,48 +75,46 @@ public class MenuUsuario {
 
 		System.out.println("Digite a duração do filme (em minutos):");
 		duracao = scan.nextInt();
-		
+
 		do {
-			try{
+			try {
 				System.out.println("Qual o status do filme?");
 				System.out.println("   1 - Não assistido");
 				System.out.println("   2 - Assistido");
 				status = scan.nextInt();
-			}catch(InputMismatchException e){
+			} catch (InputMismatchException e) {
 				System.out.println("                    Digite apenas números inteiros!      ");
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 				scan.nextLine();
 				status = 0;
 			}
 			if (status < 1 || status > 2) {
-			//if (status < 1 && status > 2) {
 				System.out.println("                   Opção inválida, tente novamente!                ");
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			}
 
 		} while (status < 1 || status > 2);
-		//} while (status < 1 && status > 2);
 
-		if (status == 1) 
+		if (status == 1)
 			classificacao = 0;
 		else {
 
 			boolean opcaoInvalida = true;
 			do {
-				try{
+				try {
 					System.out.println("Com quantas estrelas você classifica esse filme?");
 					System.out.println("   0 - ☆☆☆☆☆ | 1 - ★☆☆☆☆ | 2 - ★★☆☆☆");
 					System.out.println("   3 - ★★★☆☆ | 4 - ★★★★☆ | 5 - ★★★★★");
 					System.out.println("   ");
 					classificacao = scan.nextInt();
-				}catch(InputMismatchException e){
+				} catch (InputMismatchException e) {
 					System.out.println("                    Digite apenas números inteiros!      ");
 					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 					scan.nextLine();
 					classificacao = 6;
 				}
-			
-				if (classificacao < 0 || classificacao > 5) 
+
+				if (classificacao < 0 || classificacao > 5)
 					System.out.println("Classificação inválida! Digite novamente.");
 				else
 					opcaoInvalida = false;
@@ -131,9 +129,9 @@ public class MenuUsuario {
 
 	private static void deletarFilme(Conta conta) {
 		boolean finalizado = false, temFilme = false;
-		
+
 		ArrayList<Filme> filmes = conta.getFilmes();
-		
+
 		if (filmes.isEmpty()) {
 			System.out.println("              Não existem filmes a serem deletados!                ");
 			System.out.println("                                                                   ");
@@ -142,14 +140,14 @@ public class MenuUsuario {
 
 		while (!finalizado) {
 			String nome;
-			
+
 			System.out.print(Cores.TEXT_YELLOW);
 			System.out.println("                          DELETAR FILME                            ");
 			System.out.println(Cores.TEXT_RESET);
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-			
+
 			System.out.println("Seus filmes:\n");
-			
+
 			for (Filme filme : filmes) {
 				System.out.println(filme.getTitulo());
 			}
@@ -170,12 +168,12 @@ public class MenuUsuario {
 				boolean pararElse = false;
 
 				while (!pararElse) {
-					do{
-						try{
+					do {
+						try {
 							System.out.println("Filme não encontrado. Deseja tentar novamente? [1 - Sim | 2 - Não]");
 							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 							continuar = scan.nextInt();
-						}catch(InputMismatchException e){
+						} catch (InputMismatchException e) {
 							System.out.println("                    Digite apenas números inteiros!      ");
 							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 							scan.nextLine();
@@ -184,8 +182,8 @@ public class MenuUsuario {
 						if (continuar < 1 || continuar > 2) {
 							System.out.println("Opção invalida!");
 						}
-					}while(continuar != 1 && continuar != 2);
-					
+					} while (continuar != 1 && continuar != 2);
+
 					if (continuar == 2) {
 						pararElse = true;
 						finalizado = true;
@@ -201,5 +199,5 @@ public class MenuUsuario {
 		}
 
 	}
-	
+
 }

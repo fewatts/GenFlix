@@ -66,8 +66,8 @@ public abstract class ProducaoAudioVisual {
 		System.out.println("Título: " + this.titulo);
 		System.out.println("Gênero: " + this.genero);
 		switch (this.status) {
-		case 1 -> System.out.println("Não assistido");
-		case 2 -> System.out.println("Assitido");
+		case 1 -> System.out.println("Status: Não assistido");
+		case 2 -> System.out.println("Status: Assistido");
 		}
 		switch (this.classificacao) {
 		case 0 -> {

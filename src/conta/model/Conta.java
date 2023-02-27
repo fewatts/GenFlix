@@ -1,6 +1,7 @@
 package conta.model;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import conta.util.Cores;
 
@@ -8,6 +9,8 @@ public class Conta {
 	private String usuario;
 	private String senha;
 	private ArrayList<Filme> filmes = new ArrayList<>();
+	
+	Scanner leia = new Scanner(System.in);
 
 	public Conta(String usuario, String senha) {
 		this.usuario = usuario;
@@ -39,17 +42,32 @@ public class Conta {
 	}
 
 	public void listaFilmes() {
+		
 		if (filmes.isEmpty()) {
 			System.out.println("                  Sua lista de filmes está vazia!                  ");
 			System.out.println("                                                                   ");
+			//leia.close();
 			return;
 		}
+		
+		int opcaoListaFilme = 0;
+		
+		do {
+			System.out.println("Qual lista de filmes deseja visualizar?");
+			System.out.println("[1- Não assistidos | 2- Assistidos]");
+			opcaoListaFilme = leia.nextInt(); 
+		} while (opcaoListaFilme < 1 || opcaoListaFilme > 2);
+		
 		System.out.print(Cores.TEXT_YELLOW);
 		System.out.println("                          LISTA DE FILMES                          ");
 		System.out.print(Cores.TEXT_RESET);
 		for (Filme filme : filmes) {
-			filme.visualizar();
-		}
+			if (filme.getStatus() == opcaoListaFilme) {
+				filme.visualizar();
+			}
+
+		} 
+		//leia.close();
 	}
 
 	public void addFilme(Filme filme) {
