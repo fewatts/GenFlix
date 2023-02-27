@@ -1,6 +1,7 @@
 package conta;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 import conta.model.Conta;
 import conta.model.Filme;
@@ -24,7 +25,14 @@ public class MenuUsuario {
 			System.out.println("                                                                   ");
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println("Digite sua opção:                                                  ");
-			opcao = scan.nextInt();
+			try {
+				opcao = scan.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("        Digite apenas números inteiros!      ");
+				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+				scan.nextLine();
+				opcao = 0;
+			}
 
 			switch (opcao) {
 			case 1 -> conta.listaFilmes();
