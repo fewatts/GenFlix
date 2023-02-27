@@ -31,27 +31,31 @@ public class ContaController implements ContaRepository {
 		contas.add(conta);
 		MenuUsuario.init(conta);
 	}
-	public void deletarConta(String usuario, String senha){
+
+	public void deletarConta(String usuario, String senha) {
 		Conta conta = null;
 		for (Conta c : contas) {
-			if (c.getUsuario().equalsIgnoreCase(usuario) && c.getSenha().equalsIgnoreCase(senha)){
+			if (c.getUsuario().equalsIgnoreCase(usuario) && c.getSenha().equalsIgnoreCase(senha)) {
 				conta = c;
 			}
-				
+
 		}
 		contas.remove(conta);
 	}
-	public void atualizarConta(String usuario, String senha, String newUsuario, String newSenha){
+
+	public void atualizarConta(String usuario, String senha, String newUsuario, String newSenha) {
 		for (Conta c : contas) {
 			if (c.getUsuario().equalsIgnoreCase(usuario) && c.getSenha().equalsIgnoreCase(senha))
 				c.setUsuario(newUsuario);
-				c.setSenha(newSenha);
+			c.setSenha(newSenha);
 		}
 	}
-	public boolean existeConta(){
+
+	public boolean existeConta() {
 		return contas.isEmpty();
 	}
-	public boolean existeConta(String usuario, String senha){
+
+	public boolean existeConta(String usuario, String senha) {
 		for (Conta c : contas) {
 			if (c.getUsuario().equalsIgnoreCase(usuario) && c.getSenha().equalsIgnoreCase(senha))
 				return true;

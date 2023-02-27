@@ -2,6 +2,8 @@ package conta.model;
 
 import java.util.ArrayList;
 
+import conta.util.Cores;
+
 public class Conta {
 	private String usuario;
 	private String senha;
@@ -36,16 +38,15 @@ public class Conta {
 		this.filmes = filmes;
 	}
 
-
 	public void listaFilmes() {
-		if(filmes.isEmpty()){
-			System.out.println("  Sua lista de filmes está vazia!   ");
-			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+		if (filmes.isEmpty()) {
+			System.out.println("                  Sua lista de filmes está vazia!                  ");
+			System.out.println("                                                                   ");
 			return;
-		}	
-		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-		System.out.println("          Lista de filmes         ");
-		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+		}
+		System.out.print(Cores.TEXT_YELLOW);
+		System.out.println("                          LISTA DE FILMES                          ");
+		System.out.print(Cores.TEXT_RESET);
 		for (Filme filme : filmes) {
 			filme.visualizar();
 		}
@@ -64,10 +65,8 @@ public class Conta {
 
 	public boolean existeFilme(String nome) {
 
-		// percorrendo a lista de filmes pra verificar se o filme existe nessa lista
 		for (Filme filme : filmes) {
 			String titulo = filme.getTitulo();
-			// toUpperCase para identificar o filme independente da forma que o usuário digitar
 			if (titulo.toUpperCase().equalsIgnoreCase(nome.toUpperCase())) {
 				return true;
 			}
@@ -79,10 +78,10 @@ public class Conta {
 	public void deletaFilme(String nome) {
 		Filme filme = null;
 		for (Filme f : filmes) {
-			if (f.getTitulo().equalsIgnoreCase(nome)){
+			if (f.getTitulo().equalsIgnoreCase(nome)) {
 				filme = f;
 			}
-				
+
 		}
 		filmes.remove(filme);
 	}

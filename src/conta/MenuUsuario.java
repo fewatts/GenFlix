@@ -1,10 +1,12 @@
 package conta;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 import conta.model.Conta;
 import conta.model.Filme;
+import conta.util.Cores;
 
 public class MenuUsuario {
 	static Scanner scan = new Scanner(System.in);
@@ -13,23 +15,27 @@ public class MenuUsuario {
 		int opcao;
 		do {
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+			System.out.println(Cores.TEXT_YELLOW_BOLD);
+			System.out.println("                     BEM-VINDE, " + conta.getUsuario() + "!        ");
+			System.out.println(Cores.TEXT_RESET);
+			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println("                                                                   ");
-			System.out.println("                   BEM-VINDE " + conta.getUsuario() + "            ");
+			System.out.println("                        Meus Filmes:                               ");
+			System.out.println("                                                                   ");
+			System.out.println("                       1 - Lista Filmes                            ");
+			System.out.println("                       2 - Adicionar Filme                         ");
+			System.out.println("                       3 - Deletar Filme                           ");
+			System.out.println("                       4 - Sair da conta                           ");
+			System.out.println("                                                                   ");
+			System.out.println("                        Digite sua opção:                          ");
 			System.out.println("                                                                   ");
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-			System.out.println("          Meus Filmes:                                             ");
-			System.out.println("                   1 - Lista Filmes                                ");
-			System.out.println("                   2 - Adicionar Filme                             ");
-			System.out.println("                   3 - Deletar Filme                               ");
-			System.out.println("                   4 - Sair da conta                               ");
-			System.out.println("                                                                   ");
-			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-			System.out.println("Digite sua opção:                                                  ");
+
 			try {
 				opcao = scan.nextInt();
 			} catch (InputMismatchException e) {
-				System.out.println("        Digite apenas números inteiros!      ");
-				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+				System.out.println("                  Digite apenas números inteiros!                  ");
+				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 				scan.nextLine();
 				opcao = 0;
 			}
@@ -38,11 +44,11 @@ public class MenuUsuario {
 			case 1 -> conta.listaFilmes();
 			case 2 -> addFilme(conta);
 			case 3 -> deletarFilme(conta);
-			case 4 -> System.out.println("          Você saiu da sua conta.            ");
+			case 4 -> System.out.println("                        Você saiu da sua conta.                    ");
 			
 			default ->{
-				System.out.println("       Opção inválida, tente novamente!      ");
-				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+				System.out.println("                   Opção inválida, tente novamente!                ");
+				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 
 			}
 			}
@@ -54,28 +60,36 @@ public class MenuUsuario {
 	private static void addFilme(Conta conta) {
 		String titulo, genero;
 		Integer classificacao, status, duracao;
+		
+		System.out.print(Cores.TEXT_YELLOW);
+		System.out.println("                          ADICIONAR FILME                          ");
+		System.out.println(Cores.TEXT_RESET);
+		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 		System.out.println("Digite o nome do filme:");
 		scan.skip("\\R?");
 		titulo = scan.nextLine();
 
-		System.out.println("Digite o genero do filme:");
+		System.out.println("Digite o gênero do filme:");
 		scan.skip("\\R?");
 		genero = scan.nextLine();
 
-		System.out.println("Digite a duracao do filme(em minutos):");
-
+		System.out.println("Digite a duração do filme (em minutos):");
 		duracao = scan.nextInt();
+		
 		do {
 			System.out.println("Qual o status do filme?");
 			System.out.println("   1 - Não assistido");
 			System.out.println("   2 - Assistido");
 			status = scan.nextInt();
-			if (status < 1 && status > 2) {
-				System.out.println("        Opção inválida! Digite novamente!    ");
-				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+			
+			if (status < 1 || status > 2) {
+			//if (status < 1 && status > 2) {
+				System.out.println("                   Opção inválida, tente novamente!                ");
+				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			}
 
-		} while (status < 1 && status > 2);
+		} while (status < 1 || status > 2);
+		//} while (status < 1 && status > 2);
 
 		if (status == 1) 
 			classificacao = 0;
@@ -90,7 +104,7 @@ public class MenuUsuario {
 				classificacao = scan.nextInt();
 
 				if (classificacao < 0 || classificacao > 5) 
-					System.out.println("Classificação inválida! Digite novamente");
+					System.out.println("Classificação inválida! Digite novamente.");
 				else
 					opcaoInvalida = false;
 
@@ -104,11 +118,30 @@ public class MenuUsuario {
 
 	private static void deletarFilme(Conta conta) {
 		boolean finalizado = false, temFilme = false;
+		
+		ArrayList<Filme> filmes = conta.getFilmes();
+		
+		if (filmes.isEmpty()) {
+			System.out.println("              Não existem filmes a serem deletados!                ");
+			System.out.println("                                                                   ");
+			return;
+		}
 
 		while (!finalizado) {
 			String nome;
+			
+			System.out.print(Cores.TEXT_YELLOW);
+			System.out.println("                          DELETAR FILME                            ");
+			System.out.println(Cores.TEXT_RESET);
+			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+			
+			System.out.println("Seus filmes:\n");
+			
+			for (Filme filme : filmes) {
+				System.out.println(filme.getTitulo());
+			}
 
-			System.out.println("Digite o nome do filme a ser deletado:");
+			System.out.println("\nDigite o nome do filme a ser deletado:");
 			scan.skip("\\R?");
 			nome = scan.nextLine();
 
@@ -126,7 +159,7 @@ public class MenuUsuario {
 				while (!pararElse) {
 					do{
 						System.out.println("Filme não encontrado. Deseja tentar novamente? [1 - Sim | 2 - Não]");
-						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 						continuar = scan.nextInt();
 						if (continuar < 1 || continuar > 2) {
 							System.out.println("Opção invalida!");
