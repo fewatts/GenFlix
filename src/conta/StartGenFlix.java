@@ -24,7 +24,7 @@ public class StartGenFlix {
 			System.out.println("                                                                   ");
 			System.out.println("                   1- Criar uma conta                              ");//ok
 			System.out.println("                   2- Fazer login                                  ");//ok
-			System.out.println("                   3- Editar conta                                 ");//ok
+			System.out.println("                   3- Atualizar conta                              ");//ok
 			System.out.println("                   4- Deletar conta                                ");//ok
 			System.out.println("                   5- Encerrar                                     ");//ok
 			System.out.println("                                                                   ");
@@ -50,7 +50,7 @@ public class StartGenFlix {
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			}
 			default ->{ 
-				System.out.println("Opção inválida, tente novamente!\n");
+				System.out.println("        Opção inválida, tente novamente!");
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 
 			}
@@ -93,9 +93,16 @@ public class StartGenFlix {
 					System.out.printf("Usuário atualizado: %s\nSenha atualizada: %s\n", newUsuario, newSenha);
 					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 					do {
-						System.out.printf("\n   Confirma os dados? [1- Sim | 2- Não]   \n");
-						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-						resp = leia.nextInt();
+						try{
+							System.out.printf("\n   Confirma os dados? [1- Sim | 2- Não]   \n");
+							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+							resp = leia.nextInt();
+						}catch(InputMismatchException e){
+							System.out.println("        Digite apenas números inteiros!      ");
+							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+							leia.nextLine();
+							resp = 0;
+						}
 					} while (resp != 1 && resp != 2);
 				} while (resp != 1);
 				contaController.atualizarConta(usuario, senha, newUsuario, newSenha);
@@ -104,9 +111,16 @@ public class StartGenFlix {
 				break;
 			} else {
 				do {
-					System.out.println("   Usuário ou senha inválido. Tentar Novamente? [1- Sim | 2- Não]   ");
-					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-					continuar = leia.nextInt();
+					try{
+						System.out.println("   Usuário ou senha inválido. Tentar Novamente? [1- Sim | 2- Não]   ");
+						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+						continuar = leia.nextInt();
+					}catch(InputMismatchException e){
+						System.out.println("        Digite apenas números inteiros!      ");
+						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+						leia.nextLine();
+						continuar = 0;
+					}
 					if (continuar == 2)
 						return;
 				} while (continuar != 1 && continuar != 2);
@@ -142,9 +156,16 @@ public class StartGenFlix {
 						System.out.printf("\nUsuário: %s\nSenha: %s\n", usuario, senha);
 						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 						do {
-							System.out.printf("Deseja apagar a conta? [1- Sim | 2- Não]\n");
-							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-							resp = leia.nextInt();
+							try{
+								System.out.printf("\nDeseja apagar a conta? [1- Sim | 2- Não]\n");
+								System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+								resp = leia.nextInt();
+							}catch(InputMismatchException e){
+								System.out.println("        Digite apenas números inteiros!      ");
+								System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+								leia.nextLine();
+								resp = 0;
+							}
 							if (resp == 2)
 								return;
 						} while (resp != 1 && resp != 2);
@@ -155,9 +176,16 @@ public class StartGenFlix {
 					break;
 			} else {
 				do {
-					System.out.println("   Usuário ou senha inválido. Tentar Novamente? [1- Sim | 2- Não]   ");
-					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-					continuar = leia.nextInt();
+					try{
+						System.out.println("   Usuário ou senha inválido. Tentar Novamente? [1- Sim | 2- Não]   ");
+						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+						continuar = leia.nextInt();
+					}catch(InputMismatchException e){
+						System.out.println("        Digite apenas números inteiros!      ");
+						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+						leia.nextLine();
+						continuar = 0;
+					}
 					if(continuar == 2)
 						return;
 				} while (continuar != 1 && continuar != 2);
@@ -190,9 +218,16 @@ public class StartGenFlix {
 			if (!acesso) {
 				int continuar;
 				do {
-					System.out.println("   Usuário ou senha inválido. Tentar Novamente? [1 - Sim | 2 - Não] ");
-					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-					continuar = leia.nextInt();
+					try{
+						System.out.println("   Usuário ou senha inválido. Tentar Novamente? [1 - Sim | 2 - Não] ");
+						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+						continuar = leia.nextInt();
+					}catch(InputMismatchException e){
+						System.out.println("        Digite apenas números inteiros!      ");
+						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+						leia.nextLine();
+						continuar = 0;
+					}
 				} while (continuar != 1 && continuar != 2);
 				if (continuar == 2) {					
 					acesso = true;
@@ -223,9 +258,16 @@ public class StartGenFlix {
 			senha = leia.nextLine();
 
 			do {
-				System.out.printf("\nConfirma os dados? [1- Sim | 2- Não]\n");
-				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-				resp = leia.nextInt();
+				try{
+					System.out.printf("\nConfirma os dados? [1- Sim | 2- Não]\n");
+					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+					resp = leia.nextInt();
+				}catch(InputMismatchException e){
+					System.out.println("        Digite apenas números inteiros!      ");
+					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+					leia.nextLine();
+					resp = 0;
+				}
 			} while (resp != 1 && resp != 2);
 			if (resp == 1) {
 				conta = new Conta(usuario, senha);

@@ -38,10 +38,8 @@ public class MenuUsuario {
 			case 1 -> conta.listaFilmes();
 			case 2 -> addFilme(conta);
 			case 3 -> deletarFilme(conta);
-			case 4 ->{
-				System.out.println("          Você saiu da sua conta.            ");
-				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-			}
+			case 4 -> System.out.println("          Você saiu da sua conta.            ");
+			
 			default ->{
 				System.out.println("       Opção inválida, tente novamente!      ");
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
