@@ -3,6 +3,7 @@ package conta.model;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.io.IOException;
 
 import conta.util.Cores;
 
@@ -76,7 +77,7 @@ public class Conta {
 			}
 
 		} 
-		//leia.close();
+		keyPress();
 	}
 
 	public void addFilme(Filme filme) {
@@ -113,6 +114,20 @@ public class Conta {
 
 		}
 		filmes.remove(filme);
+	}
+	public static void keyPress() {
+
+		try{
+
+			System.out.println(Cores.TEXT_RESET + "\n\nPressione Enter para Continuar...");
+			System.in.read();
+
+		}catch(IOException e){
+
+			System.out.println("Você pressionou uma tecla diferente de enter!");
+
+		}
+		
 	}
 
 }
