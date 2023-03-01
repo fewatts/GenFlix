@@ -1,27 +1,29 @@
 package conta.model;
 
 public class Filme extends ProducaoAudioVisual {
-	private int duracao;
+	private int status;
 
-	public Filme(String titulo, String genero, int duracao, int status, int classificacao) {
-		super(titulo, genero,duracao, status, classificacao);
-		this.duracao = duracao;
+	public Filme(String titulo, String genero, int classificacao, int duracao, int status) {
+		super(titulo, genero, classificacao, duracao);
+		this.status = status;
 	}
 
-	public int getDuracao() {
-		return duracao;
+	public int getStatus() {
+		return status;
 	}
 
-	public void setDuracao(int duracao) {
-		this.duracao = duracao;
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 	@Override
-	public void visualizar() {
-
+	public void visualizar(){
 		super.visualizar();
+		switch(status){
+			case 1 -> System.out.println("Status: Não assistido.");
+			case 2 -> System.out.println("Status: Assistido.");
+		}
 
-		System.out.println("Duração do filme (em minutos): " + this.duracao);
 	}
-
+	
 }
