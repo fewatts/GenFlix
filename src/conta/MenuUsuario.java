@@ -24,7 +24,7 @@ public class MenuUsuario {
 			System.out.println("                       1 - Adicionar Filme                         ");//ok
 			System.out.println("                       2 - Listar Filmes                           ");//ok
 			System.out.println("                       3 - Deletar Filme                           ");//ok
-			System.out.println("                       4 - Mudar status do filme                   ");
+			System.out.println("                       4 - Mudar status do filme                   ");//ok
 			System.out.println("                       5 - Sair da conta                           ");//ok
 			System.out.println("                                                                   ");
 			System.out.println("                        Digite sua opção:                          ");
