@@ -44,6 +44,8 @@ public class MenuUsuario {
 			case 1 -> adicionarFilme(conta);
 			case 2 -> conta.listaFilmes();
 			case 3 -> deletar_filme(conta);
+			case 4 -> mudarStatus(conta);
+			case 5 -> System.out.println("                Logout realizado!                   ");
 
 
 			default -> {
@@ -201,6 +203,94 @@ public class MenuUsuario {
 
 		}while(continuar == 1);
 
+	}
+	private static void mudarStatus(Conta conta){
+		System.out.println(Cores.TEXT_YELLOW);
+		System.out.println("                EDITAR STATUS DO FILME                   ");
+		System.out.println(Cores.TEXT_RESET);
+		System.out.println("                                                   ");
+		int resp, classificacao ,continuar = 0;
+		int status;
+		String nome;
+		do{
+			try{
+				System.out.println("Deseja listar os filmes?");
+				System.out.println("   [1 - Sim | 2 - Não]  ");
+				resp = leia.nextInt();
+			}catch(InputMismatchException e){
+				System.out.println("                    Digite apenas números inteiros!      ");
+				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+				leia.nextLine();
+				resp = 0;
+			}
+		}while(resp != 1 && resp != 2);
+		if(resp == 1)
+			conta.listaFilmes();
+
+		do{
+
+			System.out.println("\nDigite o nome do filme que quer alterar o status: ");
+			leia.skip("\\R?");
+			nome = leia.nextLine();
+			nome = leia.nextLine();
+			
+			if(conta.existeFilme(nome)){
+				do{
+					try{
+						System.out.printf("             %s                   \n", nome);
+						System.out.println("                                   ");
+						System.out.println("Qual status deseja definir?");
+						System.out.println("[1 - Não assistido | 2 - Assistido]  ");
+						status = leia.nextInt();
+					}catch(InputMismatchException e){
+						System.out.println("                    Digite apenas números inteiros!      ");
+						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+						leia.nextLine();
+						status = 0;
+					}
+				}while(resp != 1 && resp != 2);
+				do{
+					try{
+						System.out.println("Qual sua classificação para o filme? ");
+						System.out.println("Com quantas estrelas você classifica esse filme?");
+						System.out.println("   0 - ☆☆☆☆☆ | 1 - ★☆☆☆☆ | 2 - ★★☆☆☆");
+						System.out.println("   3 - ★★★☆☆ | 4 - ★★★★☆ | 5 - ★★★★★");
+						System.out.println("   ");
+						classificacao = leia.nextInt();
+					}catch(InputMismatchException e){
+						System.out.println("                    Digite apenas números inteiros!      ");
+						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+						leia.nextLine();
+						classificacao = 6;
+					}
+
+				}while(classificacao > 5 || classificacao < 0);
+				do{
+					try{
+						System.out.printf("             %s                   \n", nome);
+						System.out.println("                                   ");
+						System.out.println("Deseja realmente alterar o status desse filme?");
+						System.out.println("   [1 - Sim | 2 - Não]  ");
+						resp = leia.nextInt();
+					}catch(InputMismatchException e){
+						System.out.println("                    Digite apenas números inteiros!      ");
+						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+						leia.nextLine();
+						resp = 0;
+					}
+				}while(resp != 1 && resp != 2);
+				if(resp == 1){
+					conta.mudarStatus(nome, status, classificacao);
+					System.out.println("           Status alterado!         ");
+					break;
+				}
+			}else{
+				System.out.println("Filme não encontrado. Deseja tentar novamente? [1 - Sim | 2 - Não]");
+				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+				continuar = leia.nextInt();
+			}
+
+		}while(continuar == 1);
 	}
 
 }

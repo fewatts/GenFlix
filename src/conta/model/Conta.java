@@ -105,6 +105,17 @@ public class Conta {
 		filmes.remove(filme);
 	}
 
+	public void mudarStatus(String nome, int status, int classificacao){
+		Filme filme = null;
+		for(Filme f : filmes){
+			if(f.getTitulo().equalsIgnoreCase(nome))
+				filme = f;
+		}
+		filme.setStatus(status);
+		filme.setClassificacao(classificacao);
+	}
+
+
 	public static void keyPress() {
 		try{
 			System.out.println(Cores.TEXT_RESET + "\n\nPressione Enter para Continuar...");
