@@ -62,8 +62,7 @@ public abstract class ProducaoAudioVisual {
 			case 5 -> System.out.println("Classificação: ★★★★★");
 	
 		}
-		System.out.println("Horas de filme: " + this.duracao_h + " h");
-		System.out.println("Minutos de filme: " + this.duracao_m + " min");
+		System.out.println("Duração: " + this.duracao_h + " h " + this.duracao_m + " min ");
 	}
 	
 }
