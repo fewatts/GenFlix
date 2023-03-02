@@ -21,12 +21,10 @@ O projeto é composto por 2 seções diferentes:
 
 <div align="center">
 <strong>Menu Principal: Nele temos as funcionalidades para manipular o array de contas.</strong>
-<img src="./assets/preview-menuPrincipal.png" alt="Foto de preview do menu inicial."/>
 </div>
 <div align="center">
 <br>
 <strong>Menu do Usuário: Nessa seção, temos todas as funcionalidades de manipulação do array de filmes do usuário.</strong>
-<img src="./assets/preview-menuUsuario.png" alt="Foto de preview do menu do usuario."/>
 </div>
 
 #### 🎬 Confira <a href="https://www.canva.com/design/DAFbDX4tYWA/1WVLXPTtizdF3fxnMp257w/view#1" target="_blank"> aqui </a>a apresentação de slides do projeto!
