@@ -92,6 +92,8 @@ public class MenuUsuario {
 					System.out.println("   1-Não assistido");
 					System.out.println("   2-Assistido");
 					status = leia.nextInt();
+					if(status != 1 && status != 2)
+						System.out.println("                   Opção inválida, tente novamente!                ");
 				}catch(InputMismatchException e){
 					System.out.println("                    Digite apenas números inteiros!      ");
 					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
@@ -110,6 +112,8 @@ public class MenuUsuario {
 						System.out.println("   3 - ★★★☆☆ | 4 - ★★★★☆ | 5 - ★★★★★");
 						System.out.println("   ");
 						classificacao = leia.nextInt();
+						if(classificacao > 5 || classificacao < 0)
+							System.out.println("                   Opção inválida, tente novamente!                ");
 					}catch(InputMismatchException e){
 						System.out.println("                    Digite apenas números inteiros!      ");
 						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
@@ -125,6 +129,8 @@ public class MenuUsuario {
 					System.out.println("          Confirma os dados do filme? [1 - Sim | 2 - Não]          ");
 					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 					continuar = leia.nextInt();
+					if(continuar != 1 && continuar != 2)
+						System.out.println("                   Opção inválida, tente novamente!                ");
 				}catch(InputMismatchException e){
 					System.out.println("                    Digite apenas números inteiros!      ");
 					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
@@ -138,9 +144,9 @@ public class MenuUsuario {
 		
 		if(!conta.existeFilme(titulo)){
 			conta.adicionarFilme(filme);
-			System.out.println("Filme cadastrado!");
+			System.out.println("                            Filme cadastrado!");
 		}else{
-			System.out.println("Esse filme já foi cadastrado!");
+			System.out.println("                            Esse filme já foi cadastrado!");
 			return;
 		}
 
@@ -158,6 +164,8 @@ public class MenuUsuario {
 				System.out.println("Deseja listar os filmes?");
 				System.out.println("   [1 - Sim | 2 - Não]  ");
 				resp = leia.nextInt();
+				if(resp != 1 && resp != 2)
+					System.out.println("                   Opção inválida, tente novamente!                ");
 			}catch(InputMismatchException e){
 				System.out.println("                    Digite apenas números inteiros!      ");
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
@@ -183,6 +191,8 @@ public class MenuUsuario {
 						System.out.println("Deseja realmente apagar esse filme?");
 						System.out.println("   [1 - Sim | 2 - Não]  ");
 						resp = leia.nextInt();
+						if(resp != 1 && resp != 2)
+							System.out.println("                   Opção inválida, tente novamente!                ");
 					}catch(InputMismatchException e){
 						System.out.println("                    Digite apenas números inteiros!      ");
 						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
@@ -192,13 +202,15 @@ public class MenuUsuario {
 				}while(resp != 1 && resp != 2);
 				if(resp == 1){
 					conta.deletarFilme(nome);
-					System.out.println("           Filme apagado!         ");
+					System.out.println("                   Filme apagado!         ");
 					break;
 				}
 			}else{
 				System.out.println("Filme não encontrado. Deseja tentar novamente? [1 - Sim | 2 - Não]");
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 				continuar = leia.nextInt();
+				if(continuar != 1 && continuar != 2)
+					System.out.println("                   Opção inválida, tente novamente!                ");
 			}
 
 		}while(continuar == 1);
@@ -217,6 +229,8 @@ public class MenuUsuario {
 				System.out.println("Deseja listar os filmes?");
 				System.out.println("   [1 - Sim | 2 - Não]  ");
 				resp = leia.nextInt();
+				if(resp != 1 && resp != 2)
+					System.out.println("                   Opção inválida, tente novamente!                ");
 			}catch(InputMismatchException e){
 				System.out.println("                    Digite apenas números inteiros!      ");
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
@@ -242,6 +256,8 @@ public class MenuUsuario {
 						System.out.println("Qual status deseja definir?");
 						System.out.println("[1 - Não assistido | 2 - Assistido]  ");
 						status = leia.nextInt();
+						if(status != 1 && status != 2)
+							System.out.println("                   Opção inválida, tente novamente!                ");
 					}catch(InputMismatchException e){
 						System.out.println("                    Digite apenas números inteiros!      ");
 						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
@@ -257,6 +273,8 @@ public class MenuUsuario {
 						System.out.println("   3 - ★★★☆☆ | 4 - ★★★★☆ | 5 - ★★★★★");
 						System.out.println("   ");
 						classificacao = leia.nextInt();
+						if(classificacao > 5 || classificacao < 0)
+							System.out.println("                   Opção inválida, tente novamente!                ");
 					}catch(InputMismatchException e){
 						System.out.println("                    Digite apenas números inteiros!      ");
 						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
@@ -272,6 +290,8 @@ public class MenuUsuario {
 						System.out.println("Deseja realmente alterar o status desse filme?");
 						System.out.println("   [1 - Sim | 2 - Não]  ");
 						resp = leia.nextInt();
+						if(resp != 1 && resp != 2)
+							System.out.println("                   Opção inválida, tente novamente!                ");
 					}catch(InputMismatchException e){
 						System.out.println("                    Digite apenas números inteiros!      ");
 						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
@@ -288,9 +308,12 @@ public class MenuUsuario {
 				System.out.println("Filme não encontrado. Deseja tentar novamente? [1 - Sim | 2 - Não]");
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 				continuar = leia.nextInt();
+				if(continuar != 1 & continuar != 2)
+					System.out.println("                   Opção inválida, tente novamente!                ");
 			}
 
 		}while(continuar == 1);
+	
 	}
-
+	
 }
