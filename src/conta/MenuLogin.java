@@ -128,10 +128,9 @@ public class MenuLogin {
 		System.out.println("                               LOGIN                               ");
 		System.out.println(Cores.TEXT_RESET);
 		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-
 		String usuario, senha;
 		boolean acesso = false;
-
+		
 		do{
 			System.out.println("Digite o nome de usuário: ");
 			leia.skip("\\R?");

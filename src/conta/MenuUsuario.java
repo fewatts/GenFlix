@@ -45,7 +45,7 @@ public class MenuUsuario {
 			case 2 -> conta.listaFilmes();
 			case 3 -> deletar_filme(conta);
 			case 4 -> mudarStatus(conta);
-			case 5 -> System.out.println("                Logout realizado!                   ");
+			case 5 -> System.out.println("                      Logout realizado!                   ");
 
 
 			default -> {
@@ -175,9 +175,7 @@ public class MenuUsuario {
 		}while(resp != 1 && resp != 2);
 		if(resp == 1)
 			conta.listaFilmes();
-		
 		do{
-
 			System.out.println("\nDigite o nome do filme a ser deletado: ");
 			leia.skip("\\R?");
 			nome = leia.nextLine();
@@ -186,7 +184,8 @@ public class MenuUsuario {
 			if(conta.existeFilme(nome)){
 				do{
 					try{
-						System.out.printf("             %s                   \n", nome);
+						System.out.printf("\n                        %s                   ", nome);
+						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 						System.out.println("                                   ");
 						System.out.println("Deseja realmente apagar esse filme?");
 						System.out.println("   [1 - Sim | 2 - Não]  ");
@@ -242,7 +241,6 @@ public class MenuUsuario {
 			conta.listaFilmes();
 
 		do{
-
 			System.out.println("\nDigite o nome do filme que quer alterar o status: ");
 			leia.skip("\\R?");
 			nome = leia.nextLine();
