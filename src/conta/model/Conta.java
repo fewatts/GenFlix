@@ -122,6 +122,8 @@ public class Conta {
 		System.out.println(Cores.TEXT_RESET);
 		for(Filme filme : filmes){
 			if(filme.getStatus() == opcaoListaFilme){
+				tempo_h += filme.getDuracao_h();
+				tempo_m += filme.getDuracao_m();
 				count++;
 			}
 
@@ -130,13 +132,6 @@ public class Conta {
 			System.out.println("                  Você ainda não assistiu nenhum filme!                   ");
 			System.out.println("                                                                       ");
 		}else{
-			for(Filme filme : filmes){
-				if(filme.getStatus() == opcaoListaFilme){
-					tempo_h += filme.getDuracao_h();
-					tempo_m += filme.getDuracao_m();
-				}
-	
-			}
 			h = ((tempo_h * 60) * 60);
 			m = tempo_m * 60;
 			seg = h + m;
@@ -152,7 +147,7 @@ public class Conta {
 				
 			}
 			System.out.printf("                   Hora(s) : Minuto(s) : Segundo(s)\n");
-			System.out.printf("                    %d     :    %d     :   %d   \n\n", hora, min, seg);
+			System.out.printf("                     %d     :    %d     :   %d   \n\n", hora, min, seg);
 		}
 		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 		keyPress();
