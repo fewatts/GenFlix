@@ -43,6 +43,21 @@ public class Conta {
 		this.filmes = filmes;
 	}
 
+	public boolean existeFilme(String nome){
+		for(Filme filme : filmes){
+			String titulo = filme.getTitulo();
+			if(titulo.toUpperCase().equalsIgnoreCase(nome.toUpperCase())){
+				return true;
+			}
+
+		}
+		return false;
+	}
+
+	public void adicionarFilme(Filme filme){
+		this.getFilmes().add(filme);
+	}
+
 	public void listaFilmes() {
 		int opcaoListaFilme, count = 0;
 		do{
@@ -80,22 +95,7 @@ public class Conta {
 		}
 		keyPress();
 	}
-
-	public boolean existeFilme(String nome){
-		for(Filme filme : filmes){
-			String titulo = filme.getTitulo();
-			if(titulo.toUpperCase().equalsIgnoreCase(nome.toUpperCase())){
-				return true;
-			}
-
-		}
-		return false;
-	}
-
-	public void adicionarFilme(Filme filme){
-		this.getFilmes().add(filme);
-	}
-
+	
 	public void deletarFilme(String nome){
 		Filme filme = null;
 		for(Filme f : filmes){
