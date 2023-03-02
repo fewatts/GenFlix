@@ -22,6 +22,7 @@ public class ContaController implements ContaRepository {
 				MenuUsuario.init(c);
 				break;
 			}
+
 		}
 		return acesso;
 	}
@@ -49,6 +50,7 @@ public class ContaController implements ContaRepository {
 				c.setUsuario(newUsuario);
 			c.setSenha(newSenha);
 		}
+		
 	}
 
 	public boolean existeConta() {

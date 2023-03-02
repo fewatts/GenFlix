@@ -176,15 +176,16 @@ public class MenuUsuario {
 		if(resp == 1)
 			conta.listaFilmes();
 		do{
+			leia.skip("\\R?");
 			System.out.println("\nDigite o nome do filme a ser deletado: ");
 			leia.skip("\\R?");
 			nome = leia.nextLine();
-			nome = leia.nextLine();
+			
 			
 			if(conta.existeFilme(nome)){
 				do{
 					try{
-						System.out.printf("\n                        %s                   ", nome);
+						System.out.printf("\n                        %s                   \n", nome);
 						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 						System.out.println("                                   ");
 						System.out.println("Deseja realmente apagar esse filme?");
