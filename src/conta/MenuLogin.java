@@ -46,7 +46,7 @@ public class MenuLogin {
 			try{
 				opcao = leia.nextInt();
 			}catch (InputMismatchException e){
-				System.out.println("                    Digite apenas números inteiros!                ");
+				System.out.println("                    Digite apenas números inteiros!             ");
 				leia.nextLine();
 				opcao = 0;
 			}
@@ -62,10 +62,10 @@ public class MenuLogin {
 				System.out.print(Cores.TEXT_RESET);
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			}
-			default -> System.out.println("                   Opção inválida, tente novamente!                ");
+			default -> System.out.println("                   Opção inválida, tente novamente!          ");
 			}
 
-		} while (opcao != 5);
+		}while(opcao != 5);
 
 	}
 
@@ -95,7 +95,7 @@ public class MenuLogin {
 					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 					resp = leia.nextInt();
 					if(resp != 1 && resp != 2)
-						System.out.println("                   Opção inválida, tente novamente!                ");
+						System.out.println("                   Opção inválida, tente novamente!            ");
 				}catch(InputMismatchException e){
 					System.out.println("                    Digite apenas números inteiros!                ");
 					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
@@ -110,7 +110,7 @@ public class MenuLogin {
 
 					contaController.criarConta(conta);
 				}else
-					System.out.println("                Conta já cadastrada, tente novamente!              ");
+					System.out.println("                Conta já cadastrada, tente novamente!          ");
 				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 
 			}else{
@@ -150,7 +150,7 @@ public class MenuLogin {
 						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 						continuar = leia.nextInt();
 						if(continuar != 1 && continuar != 2)
-							System.out.println("                   Opção inválida, tente novamente!                ");
+							System.out.println("                   Opção inválida, tente novamente!            ");
 					}catch(InputMismatchException e){
 						System.out.println("                    Digite apenas números inteiros!                ");
 						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
@@ -211,9 +211,9 @@ public class MenuLogin {
 							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 							resp = leia.nextInt();
 							if(resp != 1 && resp != 2)
-								System.out.println("                   Opção inválida, tente novamente!                ");
+								System.out.println("                   Opção inválida, tente novamente!            ");
 						}catch(InputMismatchException e){
-							System.out.println("                    Digite apenas números inteiros!      ");
+							System.out.println("                    Digite apenas números inteiros!                ");
 							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 							leia.nextLine();
 							resp = 0;
@@ -226,11 +226,11 @@ public class MenuLogin {
 			}else{
 				do{
 					try{
-						System.out.println("   Usuário ou senha inválido. Tentar Novamente? [1- Sim | 2- Não]   ");
+						System.out.println("   Usuário ou senha inválido. Tentar Novamente? [1- Sim | 2- Não]  ");
 						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 						continuar = leia.nextInt();
 						if(continuar != 1 && continuar != 2)
-							System.out.println("                   Opção inválida, tente novamente!                ");
+							System.out.println("                   Opção inválida, tente novamente!            ");
 					}catch(InputMismatchException e){
 						System.out.println("                    Digite apenas números inteiros!                ");
 						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
@@ -280,7 +280,7 @@ public class MenuLogin {
 							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 							resp = leia.nextInt();
 							if(resp != 1 && resp != 2)
-								System.out.println("                   Opção inválida, tente novamente!                ");
+								System.out.println("                   Opção inválida, tente novamente!            ");
 						}catch(InputMismatchException e){
 							System.out.println("                    Digite apenas números inteiros!                ");
 							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
