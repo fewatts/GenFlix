@@ -151,7 +151,7 @@ public class Conta {
 			System.out.printf("                     Horas : Minutos : Segundos\n");
 			System.out.printf("                       %d   :    %d   :   %d\n\n", hora, min, seg);
 		}
-
+		keyPress();
 	}
 
 
