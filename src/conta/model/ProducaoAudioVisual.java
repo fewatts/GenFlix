@@ -6,64 +6,46 @@ public abstract class ProducaoAudioVisual {
 	private String titulo;
 	private String genero;
 	private int classificacao;
-	private int duracao;
-	public ProducaoAudioVisual(String titulo, String genero, int classificacao, int duracao) {
+	private int duracao_h;
+	private int duracao_m;
+	public ProducaoAudioVisual(String titulo, String genero, int classificacao, int duracao_h, int duracao_m) {
 		this.titulo = titulo;
 		this.genero = genero;
 		this.classificacao = classificacao;
-		this.duracao = duracao;
+		this.duracao_h = duracao_h;
+		this.duracao_m = duracao_m;
 	}
-
-
-
 	public String getTitulo() {
 		return titulo;
 	}
-
-
-
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-
-
-
 	public String getGenero() {
 		return genero;
 	}
-
-
-
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-
-
-
 	public int getClassificacao() {
 		return classificacao;
 	}
-
-
-
 	public void setClassificacao(int classificacao) {
 		this.classificacao = classificacao;
 	}
-
-
-
-	public int getDuracao() {
-		return duracao;
+	public int getDuracao_h() {
+		return duracao_h;
 	}
-
-
-
-	public void setDuracao(int duracao) {
-		this.duracao = duracao;
+	public void setDuracao_h(int duracao_h) {
+		this.duracao_h = duracao_h;
 	}
-
-
-
+	public int getDuracao_m() {
+		return duracao_m;
+	}
+	public void setDuracao_m(int duracao_m) {
+		this.duracao_m = duracao_m;
+	}
+	
 	public void visualizar() {
 		System.out.println(Cores.TEXT_YELLOW);
 		System.out.println("                        Dados do(s) filme(s)                       ");
@@ -80,7 +62,8 @@ public abstract class ProducaoAudioVisual {
 			case 5 -> System.out.println("Classificação: ★★★★★");
 	
 		}
-		System.out.println("Duração do filme [Minutos]: " + this.duracao);
+		System.out.println("Horas de filme: " + this.duracao_h + " h");
+		System.out.println("Minutos de filme: " + this.duracao_m + " min");
 	}
-
+	
 }

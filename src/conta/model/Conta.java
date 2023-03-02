@@ -116,7 +116,7 @@ public class Conta {
 	}
 
 	public void tempoAssistido(){
-		int opcaoListaFilme = 2, count = 0, tempo = 0, seg = 0, min = 0, hora = 0;
+		int opcaoListaFilme = 2, count = 0, seg = 0, min = 0, hora = 0, tempo_h = 0, tempo_m = 0, h = 0, m = 0;
 		System.out.println(Cores.TEXT_YELLOW);
 		System.out.println("                          TEMPO DE TELA                                ");
 		System.out.println(Cores.TEXT_RESET);
@@ -132,11 +132,14 @@ public class Conta {
 		}else{
 			for(Filme filme : filmes){
 				if(filme.getStatus() == opcaoListaFilme){
-					tempo += filme.getDuracao();
+					tempo_h += filme.getDuracao_h();
+					tempo_m += filme.getDuracao_m();
 				}
 	
 			}
-			seg = tempo * 60;
+			h = ((tempo_h * 60) * 60);
+			m = tempo_m * 60;
+			seg = h + m;
 			while(seg > 60) {
 				if(seg > 60) {
 					seg -= 60;
@@ -148,9 +151,10 @@ public class Conta {
 				}
 				
 			}
-			System.out.printf("                     Horas : Minutos : Segundos\n");
-			System.out.printf("                       %d   :    %d   :   %d\n\n", hora, min, seg);
+			System.out.printf("                   Hora(s) : Minuto(s) : Segundo(s)\n");
+			System.out.printf("                    %d     :    %d     :   %d   \n\n", hora, min, seg);
 		}
+		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 		keyPress();
 	}
 

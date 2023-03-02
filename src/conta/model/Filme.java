@@ -3,8 +3,8 @@ package conta.model;
 public class Filme extends ProducaoAudioVisual {
 	private int status;
 
-	public Filme(String titulo, String genero, int classificacao, int duracao, int status) {
-		super(titulo, genero, classificacao, duracao);
+	public Filme(String titulo, String genero, int classificacao, int duracao_h, int duracao_m, int status) {
+		super(titulo, genero, classificacao, duracao_h, duracao_m);
 		this.status = status;
 	}
 

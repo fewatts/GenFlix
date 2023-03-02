@@ -68,7 +68,7 @@ public class MenuUsuario {
 		System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 		String titulo, genero;
 		int continuar;
-		Integer classificacao, status, duracao;
+		Integer classificacao, status, duracao_h, duracao_m;
 
 		do{
 			System.out.println("Digite o nome do filme: ");
@@ -79,15 +79,27 @@ public class MenuUsuario {
 			genero = leia.nextLine();
 			do{
 				try{
-					System.out.println("Digite a duração do filme em minutos: ");
-					duracao = leia.nextInt();
+					System.out.println("Primeiro digite a duração do filme em horas e depois em minutos:");
+					System.out.println("horas: ");
+					duracao_h = leia.nextInt();
 				}catch(InputMismatchException e){
 					System.out.println("                    Digite apenas números inteiros!                ");
 					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 					leia.nextLine();
-					duracao = 0;
+					duracao_h = 0;
 				}
-			}while(duracao == 0);
+			}while(duracao_h == 0);
+			do{
+				try{
+					System.out.println("minutos: ");
+					duracao_m = leia.nextInt();
+				}catch(InputMismatchException e){
+					System.out.println("                    Digite apenas números inteiros!                ");
+					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+					leia.nextLine();
+					duracao_m = 0;
+				}
+			}while(duracao_m == 0);
 			do{
 				try{
 					System.out.println("Qual o status do filme? ");
@@ -142,7 +154,7 @@ public class MenuUsuario {
 			}while(continuar != 1 && continuar != 2);
 		}while(continuar == 2);
 
-		Filme filme = new Filme(titulo, genero, classificacao, duracao, status);
+		Filme filme = new Filme(titulo, genero, classificacao, duracao_h, duracao_m, status);
 		
 		if(!conta.existeFilme(titulo)){
 			conta.adicionarFilme(filme);
