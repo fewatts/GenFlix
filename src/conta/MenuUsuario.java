@@ -12,7 +12,7 @@ public class MenuUsuario {
 
 	public static void init(Conta conta) {
 		int opcao;
-		do {
+		do{
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println(Cores.TEXT_YELLOW_BOLD);
 			System.out.println("                     BEM-VINDE, " + conta.getUsuario() + "!        ");
@@ -32,7 +32,7 @@ public class MenuUsuario {
 			System.out.println("                                                                   ");
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 
-			try {
+			try{
 				opcao = leia.nextInt();
 			}catch(InputMismatchException e){
 				System.out.println("                  Digite apenas números inteiros!                  ");
@@ -41,7 +41,7 @@ public class MenuUsuario {
 				opcao = 0;
 			}
 
-			switch (opcao) {
+			switch(opcao){
 			case 1 -> adicionarFilme(conta);
 			case 2 -> conta.listaFilmes();
 			case 3 -> deletar_filme(conta);
@@ -57,7 +57,7 @@ public class MenuUsuario {
 			}
 			}
 
-		} while (opcao != 6);
+		}while(opcao != 6);
 
 	}
 
