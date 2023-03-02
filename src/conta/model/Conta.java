@@ -60,7 +60,7 @@ public class Conta {
 
 		System.out.println(Cores.TEXT_YELLOW);
 		System.out.println("                          LISTA DE FILMES                                 ");
-		System.out.println(Cores.TEXT_YELLOW);
+		System.out.println(Cores.TEXT_RESET);
 		for(Filme filme : filmes){
 			if(filme.getStatus() == opcaoListaFilme){
 				count++;
@@ -113,6 +113,45 @@ public class Conta {
 		}
 		filme.setStatus(status);
 		filme.setClassificacao(classificacao);
+	}
+
+	public void tempoAssistido(){
+		int opcaoListaFilme = 2, count = 0, tempo = 0, seg = 0, min = 0, hora = 0;
+		System.out.println(Cores.TEXT_YELLOW);
+		System.out.println("                          TEMPO DE TELA                                ");
+		System.out.println(Cores.TEXT_RESET);
+		for(Filme filme : filmes){
+			if(filme.getStatus() == opcaoListaFilme){
+				count++;
+			}
+
+		}
+		if(count == 0){
+			System.out.println("                  Você ainda não assistiu nenhum filme!                   ");
+			System.out.println("                                                                       ");
+		}else{
+			for(Filme filme : filmes){
+				if(filme.getStatus() == opcaoListaFilme){
+					tempo += filme.getDuracao();
+				}
+	
+			}
+			seg = tempo * 60;
+			while(seg > 60) {
+				if(seg > 60) {
+					seg -= 60;
+					min += 1;
+				}
+				if(min == 60) {
+					min -= 60;
+					hora += 1;
+				}
+				
+			}
+			System.out.printf("                     Horas : Minutos : Segundos\n");
+			System.out.printf("                       %d   :    %d   :   %d\n\n", hora, min, seg);
+		}
+
 	}
 
 
