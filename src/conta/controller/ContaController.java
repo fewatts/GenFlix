@@ -13,6 +13,18 @@ public class ContaController implements ContaRepository {
 
 	private ArrayList<Conta> contas = new ArrayList<Conta>();
 
+	public boolean existeConta() {
+		return contas.isEmpty();
+	}
+
+	public boolean existeConta(String usuario, String senha) {
+		for (Conta c : contas) {
+			if (c.getUsuario().equalsIgnoreCase(usuario) && c.getSenha().equalsIgnoreCase(senha))
+				return true;
+		}
+		return false;
+	}
+
 	@Override
 	public boolean login(String usuario, String senha) {
 		boolean acesso = false;
@@ -51,18 +63,6 @@ public class ContaController implements ContaRepository {
 			c.setSenha(newSenha);
 		}
 		
-	}
-
-	public boolean existeConta() {
-		return contas.isEmpty();
-	}
-
-	public boolean existeConta(String usuario, String senha) {
-		for (Conta c : contas) {
-			if (c.getUsuario().equalsIgnoreCase(usuario) && c.getSenha().equalsIgnoreCase(senha))
-				return true;
-		}
-		return false;
 	}
 
 }
