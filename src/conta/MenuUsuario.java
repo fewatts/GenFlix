@@ -12,6 +12,20 @@ public class MenuUsuario {
 
 	public static void init(Conta conta) {
 		int opcao;
+
+		Filme filme1 = new Filme("Megan", "horror", 0, 1, 42, 1);
+		Filme filme2 = new Filme("The menu", "horror", 0, 1, 47, 1);
+		Filme filme3 = new Filme("X", "Horror", 5, 1, 45, 2);
+		Filme filme4 = new Filme("Nope", "Sci-fi/horror", 0, 2, 15, 1);
+		Filme filme5 = new Filme("barberian", "horror", 5, 1, 42, 2);
+		Filme filme6 = new Filme("pearl", "horror", 5, 1, 42, 2);
+		conta.adicionarFilme(filme1);
+		conta.adicionarFilme(filme2);
+		conta.adicionarFilme(filme3);
+		conta.adicionarFilme(filme4);
+		conta.adicionarFilme(filme5);
+		conta.adicionarFilme(filme6);
+
 		do{
 			System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
 			System.out.println(Cores.TEXT_YELLOW_BOLD);
@@ -278,24 +292,27 @@ public class MenuUsuario {
 						status = 0;
 					}
 				}while(resp != 1 && resp != 2);
-				do{
-					try{
-						System.out.println("Qual sua classificação para o filme? ");
-						System.out.println("Com quantas estrelas você classifica esse filme?");
-						System.out.println("   0 - ☆☆☆☆☆ | 1 - ★☆☆☆☆ | 2 - ★★☆☆☆");
-						System.out.println("   3 - ★★★☆☆ | 4 - ★★★★☆ | 5 - ★★★★★");
-						System.out.println("   ");
-						classificacao = leia.nextInt();
-						if(classificacao > 5 || classificacao < 0)
-							System.out.println("                   Opção inválida, tente novamente!            ");
-					}catch(InputMismatchException e){
-						System.out.println("                    Digite apenas números inteiros!                ");
-						System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-						leia.nextLine();
-						classificacao = 6;
-					}
+				if(status == 2){
+					do{
+						try{
+							System.out.println("Qual sua classificação para o filme? ");
+							System.out.println("Com quantas estrelas você classifica esse filme?");
+							System.out.println("   0 - ☆☆☆☆☆ | 1 - ★☆☆☆☆ | 2 - ★★☆☆☆");
+							System.out.println("   3 - ★★★☆☆ | 4 - ★★★★☆ | 5 - ★★★★★");
+							System.out.println("   ");
+							classificacao = leia.nextInt();
+							if(classificacao > 5 || classificacao < 0)
+								System.out.println("                   Opção inválida, tente novamente!            ");
+						}catch(InputMismatchException e){
+							System.out.println("                    Digite apenas números inteiros!                ");
+							System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+							leia.nextLine();
+							classificacao = 6;
+						}
 
-				}while(classificacao > 5 || classificacao < 0);
+					}while(classificacao > 5 || classificacao < 0);
+				}else
+					classificacao = 0;
 				do{
 					try{
 						System.out.printf("             %s                   \n", nome);
