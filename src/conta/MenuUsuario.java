@@ -37,8 +37,8 @@ public class MenuUsuario {
 			System.out.println("                                                                   ");
 			System.out.println("                       1 - Adicionar Filme                         ");// ok
 			System.out.println("                       2 - Listar Filmes                           ");// ok
-			System.out.println("                       3 - Deletar Filme                           ");// ok
-			System.out.println("                       4 - Mudar status do filme                   ");// ok
+			System.out.println("                       3 - Mudar status do filme                   ");// ok
+			System.out.println("                       4 - Deletar Filme                           ");// ok
 			System.out.println("                       5 - Total de tempo assistido                ");// ok
 			System.out.println("                       6 - Sair da conta                           ");// ok
 			System.out.println("                                                                   ");
@@ -58,8 +58,8 @@ public class MenuUsuario {
 			switch(opcao){
 			case 1 -> adicionarFilme(conta);
 			case 2 -> conta.listaFilmes();
-			case 3 -> deletar_filme(conta);
-			case 4 -> mudarStatus(conta);
+			case 3 -> mudarStatus(conta);
+			case 4 -> deletar_filme(conta);
 			case 5 -> conta.tempoAssistido();
 			case 6 -> System.out.println("                      Logout realizado!                   ");
 
