@@ -51,18 +51,18 @@ public class MenuLogin {
 				opcao = 0;
 			}
 			switch (opcao) {
-			case 1 -> criarConta();
-			case 2 -> login();
-			case 3 -> atualizarConta();
-			case 4 -> apagarConta();
-			case 5 -> {
-				System.out.println("                    Sistema encerrado com sucesso!                 ");
-				System.out.print(Cores.TEXT_YELLOW);
-				System.out.println("                       Volte sempre à Genflix!\n\n                 ");
-				System.out.print(Cores.TEXT_RESET);
-				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-			}
-			default -> System.out.println("                   Opção inválida, tente novamente!          ");
+				case 1 -> criarConta();
+				case 2 -> login();
+				case 3 -> atualizarConta();
+				case 4 -> apagarConta();
+				case 5 -> {
+					System.out.println("                    Sistema encerrado com sucesso!                 ");
+					System.out.print(Cores.TEXT_YELLOW);
+					System.out.println("                       Volte sempre à Genflix!\n\n                 ");
+					System.out.print(Cores.TEXT_RESET);
+					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+				}
+				default -> System.out.println("                   Opção inválida, tente novamente!          ");
 			}
 
 		}while(opcao != 5);
