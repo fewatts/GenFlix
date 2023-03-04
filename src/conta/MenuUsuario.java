@@ -56,19 +56,19 @@ public class MenuUsuario {
 			}
 
 			switch(opcao){
-			case 1 -> adicionarFilme(conta);
-			case 2 -> conta.listaFilmes();
-			case 3 -> mudarStatus(conta);
-			case 4 -> deletar_filme(conta);
-			case 5 -> conta.tempoAssistido();
-			case 6 -> System.out.println("                      Logout realizado!                   ");
+				case 1 -> adicionarFilme(conta);
+				case 2 -> conta.listaFilmes();
+				case 3 -> mudarStatus(conta);
+				case 4 -> deletar_filme(conta);
+				case 5 -> conta.tempoAssistido();
+				case 6 -> System.out.println("                      Logout realizado!                   ");
 
 
-			default -> {
-				System.out.println("                   Opção inválida, tente novamente!                ");
-				System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+				default -> {
+					System.out.println("                   Opção inválida, tente novamente!                ");
+					System.out.println("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+				}
 
-			}
 			}
 
 		}while(opcao != 6);
