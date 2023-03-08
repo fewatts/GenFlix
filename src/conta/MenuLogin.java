@@ -107,7 +107,6 @@ public class MenuLogin {
 				conta = new Conta(usuario, senha);
 				if(!contaController.existeConta(usuario, senha)){
 					System.out.printf("\nConta %s criada com sucesso!\n", usuario);
-
 					contaController.criarConta(conta);
 				}else
 					System.out.println("                Conta já cadastrada, tente novamente!          ");
@@ -158,10 +157,8 @@ public class MenuLogin {
 						continuar = 0;
 					}
 				}while(continuar != 1 && continuar != 2);
-				if(continuar == 2){
+				if(continuar == 2)
 					acesso = true;
-				}
-
 			}
 
 		} while (!acesso);
