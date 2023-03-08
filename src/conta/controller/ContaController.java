@@ -48,19 +48,19 @@ public class ContaController implements ContaRepository {
 	public void deletarConta(String usuario, String senha) {
 		Conta conta = null;
 		for (Conta c : contas) {
-			if (c.getUsuario().equalsIgnoreCase(usuario) && c.getSenha().equalsIgnoreCase(senha)) {
+			if (c.getUsuario().equalsIgnoreCase(usuario) && c.getSenha().equalsIgnoreCase(senha)) 
 				conta = c;
-			}
-
 		}
 		contas.remove(conta);
 	}
 
 	public void atualizarConta(String usuario, String senha, String newUsuario, String newSenha) {
 		for (Conta c : contas) {
-			if (c.getUsuario().equalsIgnoreCase(usuario) && c.getSenha().equalsIgnoreCase(senha))
+			if (c.getUsuario().equalsIgnoreCase(usuario) && c.getSenha().equalsIgnoreCase(senha)){
 				c.setUsuario(newUsuario);
-			c.setSenha(newSenha);
+				c.setSenha(newSenha);
+			}
+
 		}
 		
 	}

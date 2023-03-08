@@ -46,10 +46,8 @@ public class Conta {
 	public boolean existeFilme(String nome){
 		for(Filme filme : filmes){
 			String titulo = filme.getTitulo();
-			if(titulo.toUpperCase().equalsIgnoreCase(nome.toUpperCase())){
+			if(titulo.toUpperCase().equalsIgnoreCase(nome.toUpperCase()))
 				return true;
-			}
-
 		}
 		return false;
 	}
@@ -77,9 +75,8 @@ public class Conta {
 		System.out.println("                          LISTA DE FILMES                                 ");
 		System.out.println(Cores.TEXT_RESET);
 		for(Filme filme : filmes){
-			if(filme.getStatus() == opcaoListaFilme){
+			if(filme.getStatus() == opcaoListaFilme)
 				count++;
-			}
 
 		}
 		if(count == 0){

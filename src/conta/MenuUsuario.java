@@ -268,7 +268,6 @@ public class MenuUsuario {
 		}while(resp != 1 && resp != 2);
 		if(resp == 1)
 			conta.listaFilmes();
-
 		do{
 			System.out.println("\nDigite o nome do filme que quer alterar o status: ");
 			leia.skip("\\R?");
